@@ -92,6 +92,11 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	text-align: center;
 }
 
+#txtNome{
+	font-size: 20px;
+	font-weight: bold;
+}
+
 #caixaMapa{
 	height: 46px;
 	width: 196px;
@@ -101,10 +106,20 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	line-height: 46px;
 }
 
+#txtMapa{
+	font-size: 20px;
+	font-weight: bold;
+}
+
 #caixaNivel{
 	height: 46px;
 	width: 196px;
 	border: 2px solid red;
 	float: left;
 	text-align: center;
+}
+
+#txtNivel{
+	font-size: 20px;
+	font-weight: bold;
 }
