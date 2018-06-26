@@ -185,70 +185,102 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	background-color: pink;
 }
 
-#itens, #atributos{
+#itens{
 	height: 100px;
-	width: 300px;
-	float:left;
+	width: 150px;
+	float: left;
 }
 
 #linhaItens1, #linhaItens2{
 	height: 50px;
-	width: 300px;
+	width: 150px;
 	float: left;
 }
 
-#linhaItens1{
-	background-color: red;
+#item1, #item2, #item3, #item4, #item5, #item6{
+	height: 48px;
+	width: 48px;
+	float: left;
+	background-color: yellow;
+	position: relative;
+	border: 1px solid black;
 }
 
-#linhaItens2{
-	background-color: purple;
+#quantidadeItem1, #quantidadeItem2, #quantidadeItem3, #quantidadeItem4, #quantidadeItem5, #quantidadeItem6, #descricaoItem1, #descricaoItem2, #descricaoItem3, #descricaoItem4, #descricaoItem5, #descricaoItem6{
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	bottom: 0px;
+	background-color: white;
+	opacity: 0.5;
+	text-align: center;
+	line-height: 20px;
+	border: 1px solid black;
 }
 
-#dadosItem1, #dadosItem2, #dadosItem3, #dadosItem4{
-	height: 50px;
-	width: 100px;
+#quantidadeItem1, #quantidadeItem2, #quantidadeItem3, #quantidadeItem4, #quantidadeItem5, #quantidadeItem6{
+	left: 0px;
+}
+
+#descricaoItem1, #descricaoItem2, #descricaoItem3, #descricaoItem4, #descricaoItem5, #descricaoItem6{
+	right: 0px;
+}
+
+#infoItens{
+	height: 100px;
+	width: 150px;
 	float: left;
 	background-color: blue;
 }
 
-#item1, #item2, #item3, #item4{
-	height: 50px;
-	width: 50px;
-	float: left;
-	background-color: yellow;
+#nomeItem{
+	height: 25px;
+	width: 150px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 25px;
 }
 
-#linhaAtributos1, #linhaAtributos2, #linhaAtributos3, #linhaAtributos4{
-	height: 25px;
+#descricaoItem{
+	height: 75px;
+	width: 150px;
+	background-color: white;
+}
+
+#atributos{
+	height: 100px;
+	width: 300px;
+	float: left;
+}
+
+#linhaAtributos1, #linhaAtributos2, #linhaAtributos3, #linhaAtributos4, #linhaAtributos5{
+	height: 20px;
 	width: 300px;
 	background-color: purple;
 }
 
-#txtAtaque, #totalAtaque, #bonusAtaque{
-	height: 25px;
-	width: 100px;
+#txtAtaque, #txtDefesa, #txtAtaqueMagico, #txtDefesaMagica, #txtVida{
+	height: 20px;
+	width: 190px;
 	float: left;
 	background-color: pink;
+	line-height: 20px;
+	font-size: 15px;
+	padding-left: 10px;
+	font-weight: bold;
 }
 
-#txtDefesa, #totalDefesa, #bonusDefesa{
-	height: 25px;
-	width: 100px;
+#bonusAtaque, #bonusDefesa, #bonusAtaqueMagico, #bonusDefesaMagica, #totalAtaque, #totalDefesa, #totalAtaqueMagico, #totalDefesaMagica, #atualVida, #totalVida{
+	height: 20px;
+	width: 50px;
 	float: left;
-	background-color: green;
+	background-color: pink;
+	line-height: 20px;
+	font-size: 15px;
+	font-weight: bold;
 }
 
-#txtAtaqueMagico, #totalAtaqueMagico, #bonusAtaqueMagico{
-	height: 25px;
-	width: 100px;
-	float: left;
-	background-color: brown;
-}
-
-#txtDefesaMagica, #totalDefesaMagica, #bonusDefesaMagica{
-	height: 25px;
-	width: 100px;
-	float: left;
-	background-color: yellow;
+#bonusAtaque, #bonusDefesa, #bonusAtaqueMagico, #bonusDefesaMagica{
+	color: red;
 }
