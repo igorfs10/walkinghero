@@ -184,3 +184,71 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	width: 600px;
 	background-color: pink;
 }
+
+#itens, #atributos{
+	height: 100px;
+	width: 300px;
+	float:left;
+}
+
+#linhaItens1, #linhaItens2{
+	height: 50px;
+	width: 300px;
+	float: left;
+}
+
+#linhaItens1{
+	background-color: red;
+}
+
+#linhaItens2{
+	background-color: purple;
+}
+
+#dadosItem1, #dadosItem2, #dadosItem3, #dadosItem4{
+	height: 50px;
+	width: 100px;
+	float: left;
+	background-color: blue;
+}
+
+#item1, #item2, #item3, #item4{
+	height: 50px;
+	width: 50px;
+	float: left;
+	background-color: yellow;
+}
+
+#linhaAtributos1, #linhaAtributos2, #linhaAtributos3, #linhaAtributos4{
+	height: 25px;
+	width: 300px;
+	background-color: purple;
+}
+
+#txtAtaque, #totalAtaque, #bonusAtaque{
+	height: 25px;
+	width: 100px;
+	float: left;
+	background-color: pink;
+}
+
+#txtDefesa, #totalDefesa, #bonusDefesa{
+	height: 25px;
+	width: 100px;
+	float: left;
+	background-color: green;
+}
+
+#txtAtaqueMagico, #totalAtaqueMagico, #bonusAtaqueMagico{
+	height: 25px;
+	width: 100px;
+	float: left;
+	background-color: brown;
+}
+
+#txtDefesaMagica, #totalDefesaMagica, #bonusDefesaMagica{
+	height: 25px;
+	width: 100px;
+	float: left;
+	background-color: yellow;
+}
