@@ -1,37 +1,72 @@
 var document = document,
-	time = 0,
+	tempo = 0,
 	jogando = false,
-	tempo = document.getElementById("txtTempo");
+	nome = document.getElementById("txtNome"),
+	segundos = document.getElementById("txtSegundos"),
+	minutos = document.getElementById("txtMinutos"),
+	horas = document.getElementById("txtHoras"),
+	dias = document.getElementById("txtDias"),
+	txtStatus = document.getElementById("txtStatus"),
+	timeout;
+	
+function converterTempo(){
+	var dia = Math.floor(tempo / (60 * 60 * 24)),
+		hora = Math.floor((tempo % (60 * 60 * 24)) / (60 * 60)),
+		minuto = Math.floor((tempo % (60 * 60)) / 60),
+		segundo  = Math.floor((tempo % 60));
+	
+	if(segundo < 10){
+		segundos.innerHTML = "0" + segundo;
+	} else {
+		segundos.innerHTML = segundo;
+	}
+	if(minuto < 10){
+		minutos.innerHTML = "0" + minuto;
+	} else {
+		minutos.innerHTML = minuto;
+	}
+	if(hora < 10){
+		horas.innerHTML = "0" + hora;
+	} else {
+		horas.innerHTML = hora;
+	}
+	dias.innerHTML = dia;
+}
 	
 function contarTempo(){
-	time = time + 1;
-	tempo.innerHTML = "Tempo: " + time + "s";
-	setTimeout(contarTempo,1000);
+	tempo = tempo + 1;
+	converterTempo();
+	timeout = setTimeout(contarTempo,1000);
 }
 
 function novoJogo(){
-	time = 0;
-	tempo.innerHTML = "Tempo: " + time + "s";
-	setTimeout(contarTempo,1000);
+	clearTimeout(timeout);
+	nome.innerHTML = prompt("Digite seu nome:");
+	tempo = 0;
+	converterTempo();
+	timeout = setTimeout(contarTempo,1000);
 	jogando = true;
 }
 
-function salvar(){
+function salvarJogo(){
 	if(jogando === true){
-		localStorage.setItem("tempinho", time);
+		localStorage.setItem("nomeSalvo", nome.innerHTML);
+		localStorage.setItem("tempoSalvo", tempo);
 	} else {
-		alert("Precisa estar jogando para salvar o jogo.");
+		txtStatus.innerHTML = "Precisa estar jogando para salvar o jogo.";
 	}
 }
 
-function carregar(){
-	if (isNaN(parseInt(localStorage.getItem("tempinho")))){
-		alert("Não tem arquivo salvo");
+function carregarJogo(){
+	if (isNaN(parseInt(localStorage.getItem("tempoSalvo")))){
+		txtStatus.innerHTML = "Não existe jogo salvo";
 	} else {
-		time = parseInt(localStorage.getItem("tempinho"));
-		tempo.innerHTML = "Tempo: " + time + "s";
+		clearTimeout(timeout);
+		nome.innerHTML = localStorage.getItem("nomeSalvo");
+		tempo = parseInt(localStorage.getItem("tempoSalvo"));
+		converterTempo();
+		timeout = setTimeout(contarTempo,1000);
 		if (jogando === false){
-			setTimeout(contarTempo,1000);
 			jogando = true;
 		}
 	}

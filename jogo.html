@@ -8,17 +8,17 @@
 	<body>
 		<div id="jogo">
 			<div id="linhaTitulo">
-				<div id="caixaTitulo">Walking Hero</div>
+				<div id="txtTitulo">Walking Hero</div>
 			</div>
-				<div id="caixaNovo" onclick="novoJogo()">Novo Jogo</div>
-				<div id="caixaSalvar" onclick="salvar()">Salvar</div>
-				<div id="caixaCarregar" onclick="carregar()">Carregar</div>
 			<div id="linhaOpcoes">
+				<div id="caixaNovo" onclick="novoJogo()">Novo Jogo</div>
+				<div id="caixaSalvar" onclick="salvarJogo()">Salvar</div>
+				<div id="caixaCarregar" onclick="carregarJogo()">Carregar</div>
 			</div>
 			<div id="linhaInfo">
 				<div id="caixaNome">
-					<p id="txtNome">Igor</p>
-					<p id="txtTempo"></p>
+					<p id="txtNome">Walking Hero</p>
+					<p><span id="txtTempo">Tempo: </span><span id="txtDias">0</span>:<span id="txtHoras">00</span>:<span id="txtMinutos">00</span>:<span id="txtSegundos">00</span></p>
 				</div>
 				<div id="caixaMapa">
 					<p id="txtMapa">Floresta</p>
@@ -28,6 +28,16 @@
 					<p id="txtExperiencia">500/1000</p>
 				</div>
 			</div>
+			<div id="linhaStatus">
+				<div id="txtStatus"></div>
+			</div>
+			<div id="linhaCenario">
+				<div id="personagemJogador"><img src="" id="jogador"></div>
+				<div id="personagemInimigo"><img src="" id="inimigo"></div>
+				<div id="setaEsquerda"><img src="esquerda.png"></div>
+				<div id="setaDireita"><img src="direita.png"></div>
+			</div>
+			<div id="linhaPersonagem"></div>
 		</div>
 		<script src="jogo.js"></script>
 	</body>

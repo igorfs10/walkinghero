@@ -10,18 +10,18 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	border: 2px solid green;
 }
 
-#linhaTitulo, #linhaOpcoes, #linhaInfo{
+#linhaTitulo, #linhaOpcoes, #linhaInfo, #linhaStatus{
 	height: 50px;
 	width: 600px;
 }
 
-#caixaTitulo{
+#txtTitulo{
 	height: 50px;
 	width: 600px;
-	font-size: 40px;
+	font-size: 45px;
 	font-weight: bold;
 	float: left;
-	line-height: 45px;
+	line-height: 50px;
 	text-align: center;
 }
 
@@ -97,6 +97,10 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	font-weight: bold;
 }
 
+#txtTempo{
+	font-weight: bold;
+}
+
 #caixaMapa{
 	height: 46px;
 	width: 196px;
@@ -122,4 +126,61 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 #txtNivel{
 	font-size: 20px;
 	font-weight: bold;
+}
+
+#linhaStatus{
+	background-color: #000000;
+}
+
+#txtStatus{
+	font-size: 30px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 50px;
+}
+
+#linhaCenario{
+	height: 300px;
+	width: 600px;
+	background-color: green;
+	position: relative;
+}
+
+#personagemJogador, #personagemInimigo{
+	height: 64px;
+	width: 64px;
+	position: absolute;
+	bottom: 50px;
+}
+
+#personagemJogador{
+	background-color: blue;
+	left: 230px;
+}
+
+#personagemInimigo{
+	background-color: red;
+	right: 230px;
+}
+
+#setaEsquerda, #setaDireita{
+	height: 24px;
+	width: 24px;
+	background-color: gray;
+	position: absolute;
+	bottom: 150px;
+}
+
+#setaEsquerda{
+	left: 0px;
+}
+
+#setaDireita{
+	right: 0px;
+}
+
+#linhaPersonagem{
+	height: 100px;
+	width: 600px;
+	background-color: pink;
 }
