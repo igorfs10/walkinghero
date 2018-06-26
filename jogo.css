@@ -147,25 +147,25 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 }
 
 #personagemJogador, #personagemInimigo{
-	height: 64px;
-	width: 64px;
+	height: 128px;
+	width: 128px;
 	position: absolute;
 	bottom: 50px;
 }
 
 #personagemJogador{
 	background-color: blue;
-	left: 230px;
+	left: 175px;
 }
 
 #personagemInimigo{
 	background-color: red;
-	right: 230px;
+	right: 175px;
 }
 
 #setaEsquerda, #setaDireita{
-	height: 24px;
-	width: 24px;
+	height: 32px;
+	width: 32px;
 	background-color: gray;
 	position: absolute;
 	bottom: 150px;
