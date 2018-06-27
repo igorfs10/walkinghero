@@ -13,6 +13,8 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 #linhaTitulo, #linhaOpcoes, #linhaInfo, #linhaStatus{
 	height: 50px;
 	width: 600px;
+	background-color: #474747;
+	color: #aaaaaa;
 }
 
 #txtTitulo{
@@ -52,22 +54,6 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	transition: 0.5s;
 }
 
-#caixaNovo:hover, #caixaSalvar:hover, #caixaCarregar:hover{
-	transition: 0.5s;
-}
-
-#caixaNovo:hover{
-	background-color: #5efc82;
-}
-
-#caixaSalvar:hover{
-	background-color: #768fff;
-}
-
-#caixaCarregar:hover{
-	background-color: #ff5131;
-}
-
 #caixaNovo:active, #caixaSalvar:active, #caixaCarregar:active{
 	transition: 0.5s;
 }
@@ -87,9 +73,12 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 #caixaNome{
 	height: 46px;
 	width: 196px;
-	border: 2px solid blue;
 	float: left;
 	text-align: center;
+	border: 2px solid transparent;
+	border-image: url('imagens/interface/itembg.png') repeat;
+	border-image-width: 6px 6px;
+	border-image-slice: 9;
 }
 
 #txtNome{
@@ -104,10 +93,13 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 #caixaMapa{
 	height: 46px;
 	width: 196px;
-	border: 2px solid yellow;
 	float: left;
 	text-align: center;
 	line-height: 46px;
+	border: 2px solid transparent;
+	border-image: url('imagens/interface/itembg.png') repeat;
+	border-image-width: 6px 6px;
+	border-image-slice: 9;
 }
 
 #txtMapa{
@@ -118,9 +110,12 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 #caixaNivel{
 	height: 46px;
 	width: 196px;
-	border: 2px solid red;
 	float: left;
 	text-align: center;
+	border: 2px solid transparent;
+	border-image: url('imagens/interface/itembg.png') repeat;
+	border-image-width: 6px 6px;
+	border-image-slice: 9;
 }
 
 #txtNivel{
@@ -182,7 +177,8 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 #linhaPersonagem{
 	height: 100px;
 	width: 600px;
-	background-color: pink;
+	background-color: #474747;
+	color: #aaaaaa;
 }
 
 #itens{
@@ -201,21 +197,25 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	height: 48px;
 	width: 48px;
 	float: left;
-	background-color: yellow;
 	position: relative;
-	border: 1px solid black;
+	border: 1px solid transparent;
+	border-image: url('imagens/interface/itembg.png') repeat;
+	border-image-width: 6px 6px;
+	border-image-slice: 9;
 }
 
 #quantidadeItem1, #quantidadeItem2, #quantidadeItem3, #quantidadeItem4, #quantidadeItem5, #quantidadeItem6, #descricaoItem1, #descricaoItem2, #descricaoItem3, #descricaoItem4, #descricaoItem5, #descricaoItem6{
-	height: 20px;
-	width: 20px;
+	height: 19px;
+	width: 19px;
 	position: absolute;
 	bottom: 0px;
 	background-color: white;
 	opacity: 0.5;
 	text-align: center;
-	line-height: 20px;
-	border: 1px solid black;
+	line-height: 19px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	color: #000000;
 }
 
 #quantidadeItem1, #quantidadeItem2, #quantidadeItem3, #quantidadeItem4, #quantidadeItem5, #quantidadeItem6{
@@ -230,22 +230,29 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	height: 100px;
 	width: 150px;
 	float: left;
-	background-color: blue;
 }
 
 #nomeItem{
-	height: 25px;
-	width: 150px;
+	height: 23px;
+	width: 148px;
 	text-align: center;
 	font-weight: bold;
 	font-size: 20px;
-	line-height: 25px;
+	line-height: 23px;
+	border: 1px solid transparent;
+	border-image: url('imagens/interface/itembg.png') repeat;
+	border-image-width: 6px 6px;
+	border-image-slice: 9;
 }
 
 #descricaoItem{
-	height: 75px;
-	width: 150px;
-	background-color: white;
+	height: 67px;
+	width: 142px;
+	border: 1px solid transparent;
+	border-image: url('imagens/interface/itembg.png') repeat;
+	border-image-width: 6px 6px;
+	border-image-slice: 9;
+	padding: 3px;
 }
 
 #atributos{
@@ -255,28 +262,29 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 }
 
 #linhaAtributos1, #linhaAtributos2, #linhaAtributos3, #linhaAtributos4, #linhaAtributos5{
-	height: 20px;
-	width: 300px;
-	background-color: purple;
+	height: 18px;
+	width: 298px;
+	border: 1px solid transparent;
+	border-image: url('imagens/interface/itembg.png') repeat;
+	border-image-width: 6px 6px;
+	border-image-slice: 9;
 }
 
 #txtAtaque, #txtDefesa, #txtAtaqueMagico, #txtDefesaMagica, #txtVida{
-	height: 20px;
-	width: 190px;
+	height: 18px;
+	width: 188px;
 	float: left;
-	background-color: pink;
-	line-height: 20px;
+	line-height: 18px;
 	font-size: 15px;
 	padding-left: 10px;
 	font-weight: bold;
 }
 
 #bonusAtaque, #bonusDefesa, #bonusAtaqueMagico, #bonusDefesaMagica, #totalAtaque, #totalDefesa, #totalAtaqueMagico, #totalDefesaMagica, #atualVida, #totalVida{
-	height: 20px;
-	width: 50px;
+	height: 18px;
+	width: 48px;
 	float: left;
-	background-color: pink;
-	line-height: 20px;
+	line-height: 18px;
 	font-size: 15px;
 	font-weight: bold;
 }
