@@ -7,6 +7,8 @@ var document = document,
 	horas = document.getElementById("txtHoras"),
 	dias = document.getElementById("txtDias"),
 	txtStatus = document.getElementById("txtStatus"),
+	nomeItem = document.getElementById("nomeItem"),
+	descricaoItem = document.getElementById("descricaoItem"),
 	timeout;
 	
 function converterTempo(){
@@ -41,7 +43,7 @@ function contarTempo(){
 
 function novoJogo(){
 	clearTimeout(timeout);
-	nome.innerHTML = prompt("Digite seu nome:");
+	nome.innerHTML = "Guerreiro";
 	tempo = 0;
 	converterTempo();
 	timeout = setTimeout(contarTempo,1000);
@@ -70,4 +72,9 @@ function carregarJogo(){
 			jogando = true;
 		}
 	}
+}
+
+function mostrarInfoItem(id){
+	nomeItem.innerHTML = itens[id].nome;
+	descricaoItem.innerHTML = itens[id].descricao;
 }
