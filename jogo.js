@@ -1,15 +1,16 @@
 var document = document,
 	tempo = 0,
 	jogando = false,
-	nome = document.getElementById("txtNome"),
 	segundos = document.getElementById("txtSegundos"),
 	minutos = document.getElementById("txtMinutos"),
 	horas = document.getElementById("txtHoras"),
 	dias = document.getElementById("txtDias"),
 	txtStatus = document.getElementById("txtStatus"),
-	nomeItem = document.getElementById("nomeItem"),
-	descricaoItem = document.getElementById("descricaoItem"),
-	timeout;
+	personagemJogador = document.getElementById("personagemJogador"),
+	personagemInimigo = document.getElementById("personagemInimigo"),
+	jogador,
+	inimigo,
+	jogo;
 	
 function converterTempo(){
 	var dia = Math.floor(tempo / (60 * 60 * 24)),
@@ -35,25 +36,38 @@ function converterTempo(){
 	dias.innerHTML = dia;
 }
 	
-function contarTempo(){
+function execucaoJogo(){
 	tempo = tempo + 1;
 	converterTempo();
-	timeout = setTimeout(contarTempo,1000);
+	jogo = setTimeout(execucaoJogo,1000);
 }
 
 function novoJogo(){
-	clearTimeout(timeout);
-	nome.innerHTML = "Guerreiro";
 	tempo = 0;
 	converterTempo();
-	timeout = setTimeout(contarTempo,1000);
+	clearTimeout(jogo);
+	personagemJogador.setAttribute("onclick",  "comecarJogo('Guerreiro');");
+	personagemInimigo.setAttribute("onclick",  "comecarJogo('Mago');");
+	txtStatus.innerHTML = "Escolha o personagem";
+}
+
+function comecarJogo(nomePersonagem){
+	jogador = escolherPersonagem(nomePersonagem);
+	colocarStatusPersonagem();
+	tempo = 0;
+	converterTempo();
+	jogo = setTimeout(execucaoJogo,1000);
 	jogando = true;
+	personagemJogador.removeAttribute("onclick");
+	personagemInimigo.removeAttribute("onclick");
+	txtStatus.innerHTML = "";
 }
 
 function salvarJogo(){
 	if(jogando === true){
-		localStorage.setItem("nomeSalvo", nome.innerHTML);
+		localStorage.setItem("nomeSalvo", txtNome.innerHTML);
 		localStorage.setItem("tempoSalvo", tempo);
+		localStorage.setItem("jogador", JSON.stringify(jogador));
 	} else {
 		txtStatus.innerHTML = "Precisa estar jogando para salvar o jogo.";
 	}
@@ -63,18 +77,17 @@ function carregarJogo(){
 	if (isNaN(parseInt(localStorage.getItem("tempoSalvo")))){
 		txtStatus.innerHTML = "Não existe jogo salvo";
 	} else {
-		clearTimeout(timeout);
-		nome.innerHTML = localStorage.getItem("nomeSalvo");
+		clearTimeout(jogo);
 		tempo = parseInt(localStorage.getItem("tempoSalvo"));
+		jogador = JSON.parse(localStorage.getItem("jogador"));
 		converterTempo();
-		timeout = setTimeout(contarTempo,1000);
+		colocarStatusPersonagem();
+		jogo = setTimeout(execucaoJogo,1000);
+		personagemJogador.removeAttribute("onclick");
+		personagemInimigo.removeAttribute("onclick");
+		txtStatus.innerHTML = "";
 		if (jogando === false){
 			jogando = true;
 		}
 	}
-}
-
-function mostrarInfoItem(id){
-	nomeItem.innerHTML = itens[id].nome;
-	descricaoItem.innerHTML = itens[id].descricao;
 }

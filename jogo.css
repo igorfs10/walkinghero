@@ -5,6 +5,12 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 
 *{
 	font-family: Arial;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 #jogo{
@@ -159,12 +165,12 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 
 #personagemJogador{
 	background-color: blue;
-	left: 175px;
+	left: 170px;
 }
 
 #personagemInimigo{
 	background-color: red;
-	right: 175px;
+	right: 170px;
 }
 
 #setaEsquerda, #setaDireita{
@@ -252,6 +258,7 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	border-image: url('imagens/interface/borda.png') repeat;
 	border-image-width: 6px 6px;
 	border-image-slice: 9;
+	color: #dddddd;
 }
 
 #descricaoItem{
@@ -296,6 +303,7 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	line-height: 18px;
 	font-size: 15px;
 	font-weight: bold;
+	text-align: right;
 }
 
 #bonusAtaque, #bonusDefesa, #bonusAtaqueMagico, #bonusDefesaMagica{
