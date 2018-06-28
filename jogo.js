@@ -46,6 +46,7 @@ function novoJogo(){
 	tempo = 0;
 	converterTempo();
 	clearTimeout(jogo);
+	apagarStatusPersonagem()
 	personagemJogador.setAttribute("onclick",  "comecarJogo('Guerreiro');");
 	personagemInimigo.setAttribute("onclick",  "comecarJogo('Mago');");
 	txtStatus.innerHTML = "Escolha o personagem";

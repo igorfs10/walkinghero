@@ -52,3 +52,13 @@ function colocarStatusPersonagem(){
 	totalAtaqueMagico.innerHTML = jogador.ataqueMagico;
 	totalDefesaMagica.innerHTML = jogador.defesaMagica;
 }
+
+function apagarStatusPersonagem(){
+	txtNome.innerHTML = "Walking Hero";
+	atualVida.innerHTML = "";
+	totalVida.innerHTML = "";
+	totalAtaque.innerHTML = "";
+	totalDefesa.innerHTML = "";
+	totalAtaqueMagico.innerHTML = "";
+	totalDefesaMagica.innerHTML = "";
+}
