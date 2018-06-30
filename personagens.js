@@ -21,7 +21,13 @@ function escolherPersonagem(nomePersonagem){
 		imagemAndando: "",
 		imagemAtacando: "",
 		imagemCurando: "",
-		experiencia: 0
+		experiencia: 1001,
+		item1: 0,
+		item2: 0,
+		item3: 0,
+		item4: 1,
+		item5: 1,
+		item6: 1
 		};
 		return personagem;
 	} else if(nomePersonagem === "Mago"){
@@ -37,7 +43,13 @@ function escolherPersonagem(nomePersonagem){
 		imagemAndando: "",
 		imagemAtacando: "",
 		imagemCurando: "",
-		experiencia: 0
+		experiencia: 0,
+		item1: 1,
+		item2: 1,
+		item3: 1,
+		item4: 0,
+		item5: 0,
+		item6: 0
 		};
 		return personagem;
 	}
@@ -45,7 +57,6 @@ function escolherPersonagem(nomePersonagem){
 
 function colocarStatusPersonagem(){
 	txtNome.innerHTML = jogador.nome;
-	atualVida.innerHTML = jogador.vida;
 	totalVida.innerHTML = jogador.vida;
 	totalAtaque.innerHTML = jogador.ataque;
 	totalDefesa.innerHTML = jogador.defesa;

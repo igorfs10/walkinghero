@@ -219,6 +219,10 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	border-image-slice: 9;
 }
 
+#item1[data-selecionado="ativado"], #item2[data-selecionado="ativado"], #item3[data-selecionado="ativado"], #item4[data-selecionado="ativado"], #item5[data-selecionado="ativado"], #item6[data-selecionado="ativado"]{
+	background-color:#e65100;
+}
+
 #quantidadeItem1, #quantidadeItem2, #quantidadeItem3, #quantidadeItem4, #quantidadeItem5, #quantidadeItem6, #descricaoItem1, #descricaoItem2, #descricaoItem3, #descricaoItem4, #descricaoItem5, #descricaoItem6{
 	height: 19px;
 	width: 19px;

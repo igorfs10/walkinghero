@@ -46,7 +46,9 @@ function novoJogo(){
 	tempo = 0;
 	converterTempo();
 	clearTimeout(jogo);
-	apagarStatusPersonagem()
+	apagarStatusPersonagem();
+	apagarQuantidadeItens();
+	apagarNivel();
 	personagemJogador.setAttribute("onclick",  "comecarJogo('Guerreiro');");
 	personagemInimigo.setAttribute("onclick",  "comecarJogo('Mago');");
 	txtStatus.innerHTML = "Escolha o personagem";
@@ -55,6 +57,8 @@ function novoJogo(){
 function comecarJogo(nomePersonagem){
 	jogador = escolherPersonagem(nomePersonagem);
 	colocarStatusPersonagem();
+	colocarQuantidadeItens();
+	pegarNivel();
 	tempo = 0;
 	converterTempo();
 	jogo = setTimeout(execucaoJogo,1000);
@@ -83,6 +87,7 @@ function carregarJogo(){
 		jogador = JSON.parse(localStorage.getItem("jogador"));
 		converterTempo();
 		colocarStatusPersonagem();
+		colocarQuantidadeItens();
 		jogo = setTimeout(execucaoJogo,1000);
 		personagemJogador.removeAttribute("onclick");
 		personagemInimigo.removeAttribute("onclick");
