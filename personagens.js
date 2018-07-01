@@ -1,11 +1,13 @@
-var txtNome = document.getElementById("txtNome"),
+var imagem = "",
+	jogadorImagem = document.getElementById("jogadorImagem"),
+	inimigoImagem = document.getElementById("inimigoImagem"),
+	txtNome = document.getElementById("txtNome"),
 	atualVida = document.getElementById("atualVida"),
 	totalVida = document.getElementById("totalVida"),
 	totalAtaque = document.getElementById("totalAtaque"),
 	totalDefesa = document.getElementById("totalDefesa"),
 	totalAtaqueMagico = document.getElementById("totalAtaqueMagico"),
 	totalDefesaMagica = document.getElementById("totalDefesaMagica");
-
 
 function escolherPersonagem(nomePersonagem){
 	if(nomePersonagem === "Guerreiro"){
@@ -17,8 +19,8 @@ function escolherPersonagem(nomePersonagem){
 		defesa : 2,
 		ataqueMagico: 1,
 		defesaMagica: 1,
-		imagemParado: "",
-		imagemAndando: "",
+		imagemParado: "imagens/guerreiro/1.png",
+		imagemAndando: "imagens/guerreiro/2.png",
 		imagemAtacando: "",
 		imagemCurando: "",
 		experiencia: 1001,
@@ -72,4 +74,20 @@ function apagarStatusPersonagem(){
 	totalDefesa.innerHTML = "";
 	totalAtaqueMagico.innerHTML = "";
 	totalDefesaMagica.innerHTML = "";
+}
+
+function andando(){
+	if(imagem === jogador.imagemParado){
+		imagem = jogador.imagemAndando;
+		jogadorImagem.src = imagem;
+	} else {
+		imagem = jogador.imagemParado;
+		jogadorImagem.src = imagem;
+	}
+	animacao = setTimeout(andando,500);
+}
+
+function pararAnimacao(){
+	clearTimeout(animacao);
+	jogadorImagem.src = "";
 }
