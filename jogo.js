@@ -54,9 +54,8 @@ function novoJogo(){
 	apagarStatusPersonagem();
 	apagarQuantidadeItens();
 	apagarNivel();
-	personagemJogador.setAttribute("onclick",  "comecarJogo('Guerreiro');");
-	personagemInimigo.setAttribute("onclick",  "comecarJogo('Mago');");
-	txtStatus.innerHTML = "Escolha o personagem";
+	mostrarPersonagens();
+	desaparecerSetas();
 }
 
 function comecarJogo(nomePersonagem){
@@ -66,11 +65,10 @@ function comecarJogo(nomePersonagem){
 	pegarNivel();
 	jogo = setTimeout(execucaoJogo,1000);
 	jogando = true;
-	personagemJogador.removeAttribute("onclick");
-	personagemInimigo.removeAttribute("onclick");
-	txtStatus.innerHTML = "";
+	personagemEscolhido();
 	andando();
 	inicialMapa();
+	aparecerSetas();
 }
 
 function salvarJogo(){
@@ -98,11 +96,10 @@ function carregarJogo(){
 		colocarQuantidadeItens();
 		pegarNivel();
 		jogo = setTimeout(execucaoJogo, 1000);
-		personagemJogador.removeAttribute("onclick");
-		personagemInimigo.removeAttribute("onclick");
-		txtStatus.innerHTML = "";
+		personagemEscolhido();
 		jogando = true;
 		andando();
 		inicialMapa();
+		aparecerSetas();
 	}
 }

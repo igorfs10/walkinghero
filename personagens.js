@@ -91,3 +91,18 @@ function pararAnimacao(){
 	clearTimeout(animacao);
 	jogadorImagem.src = "";
 }
+
+function mostrarPersonagens(){
+	personagemJogador.setAttribute("onclick",  "comecarJogo('Guerreiro')");
+	personagemInimigo.setAttribute("onclick",  "comecarJogo('Mago')");
+	jogadorImagem.src = "imagens/guerreiro/1.png";
+	inimigoImagem.src = "imagens/guerreiro/2.png";
+	txtStatus.innerHTML = "Escolha o personagem";
+}
+
+function personagemEscolhido(){
+	personagemJogador.removeAttribute("onclick");
+	personagemInimigo.removeAttribute("onclick");
+	inimigoImagem.src = "";
+	txtStatus.innerHTML = "";
+}

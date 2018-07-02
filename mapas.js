@@ -1,5 +1,7 @@
 var txtMapa = document.getElementById("txtMapa"),
 	linhaCenario = document.getElementById("linhaCenario"),
+	setaEsquerda = document.getElementById("setaEsquerda"),
+	setaDireita = document.getElementById("setaDireita"),
 	mapas = [];
 
 var	mapaDados = {
@@ -37,31 +39,45 @@ function inicialMapa(){
 }
 
 function proximoMapa(){
-	if(jogando && batalhando == false){
+	if(jogando && !batalhando){
 		for(atual = 0; mapas[atual].nome !== txtMapa.innerHTML; atual++){}
 		if(atual === ultimo){
 			txtStatus.innerHTML = "Esse é o ultimo local.";
 		} else {
 			mudarMapa(atual + 1);
+			setaEsquerda.style.display = "block";
+			if(atual + 1 === ultimo){
+				setaDireita.style.display = "none";
+			}
 		}
 	} else if(batalhando){
 		txtStatus.innerHTML = "Não pode mudar o local enquanto batalha.";
-	} else {
-		txtStatus.innerHTML = "Precisa estar jogando para mudar o local.";
 	}
 }
 
 function anteriorMapa(){
-	if(jogando && batalhando == false){
+	if(jogando && !batalhando){
 		for(atual = 0; mapas[atual].nome !== txtMapa.innerHTML; atual++){}
 		if(atual === primeiro){
 			txtStatus.innerHTML = "Esse é o primeiro local.";
 		} else {
 			mudarMapa(atual - 1);
+			setaDireita.style.display = "block";
+			if(atual - 1 === primeiro){
+				setaEsquerda.style.display = "none";
+			}
 		}
 	} else if(batalhando){
 		txtStatus.innerHTML = "Não pode mudar o local enquanto batalha.";
-	} else {
-		txtStatus.innerHTML = "Precisa estar jogando para mudar o local.";
 	}
+}
+
+function aparecerSetas(){
+	setaDireita.style.display = "block";
+	setaEsquerda.style.display = "none";
+}
+
+function desaparecerSetas(){
+	setaDireita.style.display = "none";
+	setaEsquerda.style.display = "none";
 }
