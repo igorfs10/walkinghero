@@ -152,8 +152,8 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 #linhaCenario{
 	height: 300px;
 	width: 600px;
-	background-color: green;
 	position: relative;
+	background-image:;
 }
 
 #personagemJogador, #personagemInimigo{

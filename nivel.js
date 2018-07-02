@@ -7,7 +7,7 @@ var txtNivel = document.getElementById("txtNivel"),
 	1000,
 	10000,
 	100000
-];
+	];
 
 function pegarNivel(){
 	var nivelJogador,

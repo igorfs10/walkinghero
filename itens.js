@@ -7,30 +7,7 @@ var itens = [],
 	quantidadeItem6 = document.getElementById("quantidadeItem6"),
 	nomeItem = document.getElementById("nomeItem"),
 	descricaoItem = document.getElementById("descricaoItem");
-
-function mostrarInfoItem(id){
-	nomeItem.innerHTML = itens[id].nome;
-	descricaoItem.innerHTML = itens[id].descricao;
-}
-
-function colocarQuantidadeItens(){
-	quantidadeItem1.innerHTML = jogador.item1;
-	quantidadeItem2.innerHTML = jogador.item2;
-	quantidadeItem3.innerHTML = jogador.item3;
-	quantidadeItem4.innerHTML = jogador.item4;
-	quantidadeItem5.innerHTML = jogador.item5;
-	quantidadeItem6.innerHTML = jogador.item6;
-}
-
-function apagarQuantidadeItens(){
-	quantidadeItem1.innerHTML = "";
-	quantidadeItem2.innerHTML = "";
-	quantidadeItem3.innerHTML = "";
-	quantidadeItem4.innerHTML = "";
-	quantidadeItem5.innerHTML = "";
-	quantidadeItem6.innerHTML = "";
-}
-
+	
 var	dadosItem = {
 		numero : 0,
 		nome : "?????",
@@ -94,3 +71,26 @@ var	dadosItem = {
 		}
 	};
 itens.push(dadosItem);
+
+function mostrarInfoItem(id){
+	nomeItem.innerHTML = itens[id].nome;
+	descricaoItem.innerHTML = itens[id].descricao;
+}
+
+function colocarQuantidadeItens(){
+	quantidadeItem1.innerHTML = jogador.item1;
+	quantidadeItem2.innerHTML = jogador.item2;
+	quantidadeItem3.innerHTML = jogador.item3;
+	quantidadeItem4.innerHTML = jogador.item4;
+	quantidadeItem5.innerHTML = jogador.item5;
+	quantidadeItem6.innerHTML = jogador.item6;
+}
+
+function apagarQuantidadeItens(){
+	quantidadeItem1.innerHTML = "";
+	quantidadeItem2.innerHTML = "";
+	quantidadeItem3.innerHTML = "";
+	quantidadeItem4.innerHTML = "";
+	quantidadeItem5.innerHTML = "";
+	quantidadeItem6.innerHTML = "";
+}

@@ -8,7 +8,7 @@ var imagem = "",
 	totalDefesa = document.getElementById("totalDefesa"),
 	totalAtaqueMagico = document.getElementById("totalAtaqueMagico"),
 	totalDefesaMagica = document.getElementById("totalDefesaMagica");
-
+	
 function escolherPersonagem(nomePersonagem){
 	if(nomePersonagem === "Guerreiro"){
 		var personagem = {
@@ -56,7 +56,7 @@ function escolherPersonagem(nomePersonagem){
 		return personagem;
 	}
 }
-
+	
 function colocarStatusPersonagem(){
 	txtNome.innerHTML = jogador.nome;
 	totalVida.innerHTML = jogador.vida;

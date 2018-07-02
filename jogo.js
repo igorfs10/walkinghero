@@ -9,6 +9,7 @@ var document = document,
 	txtStatus = document.getElementById("txtStatus"),
 	personagemJogador = document.getElementById("personagemJogador"),
 	personagemInimigo = document.getElementById("personagemInimigo"),
+	batalhando,
 	jogador,
 	inimigo,
 	jogo;
@@ -69,6 +70,7 @@ function comecarJogo(nomePersonagem){
 	personagemInimigo.removeAttribute("onclick");
 	txtStatus.innerHTML = "";
 	andando();
+	inicialMapa();
 }
 
 function salvarJogo(){
@@ -101,5 +103,6 @@ function carregarJogo(){
 		txtStatus.innerHTML = "";
 		jogando = true;
 		andando();
+		inicialMapa();
 	}
 }
