@@ -68,7 +68,7 @@ function comecarJogo(nomePersonagem){
 	andando();
 	inicialMapa();
 	aparecerSetas();
-	jogo = setTimeout(execucaoJogo,1000);
+	jogo = setTimeout(execucaoJogo, 1);
 	atualVida.innerHTML = jogador.vida;
 }
 
@@ -97,7 +97,7 @@ function carregarJogo(){
 		andando();
 		inicialMapa();
 		aparecerSetas();
-		jogo = setTimeout(execucaoJogo, 1000);
+		jogo = setTimeout(execucaoJogo, 1);
 		atualVida.innerHTML = jogador.vida;
 	}
 }
