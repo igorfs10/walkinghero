@@ -27,7 +27,7 @@ function escolherInimigo(local){
 				defesaMagica: 1,
 				imagemParado: "",
 				imagemAtacando: "",
-				experiencia: 2,
+				experiencia: 4,
 				item: 2
 			};
 			return inimigo;
@@ -42,7 +42,7 @@ function escolherInimigo(local){
 				defesaMagica: 2,
 				imagemParado: "",
 				imagemAtacando: "",
-				experiencia: 2,
+				experiencia: 8,
 				item: 3
 			};
 			return inimigo;

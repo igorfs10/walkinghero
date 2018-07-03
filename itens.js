@@ -17,66 +17,74 @@ var itens = [],
 var	dadosItem = {
 		numero : 0,
 		nome : "?????",
-		descricao : "?????????",
-		efeito : function(nome){
-			alert(nome);
-		}
+		descricao : "?????????"
 	};
 itens.push(dadosItem);
 
 var	dadosItem = {
 		numero : 1,
 		nome : "Poção",
-		descricao : "Recupera 10% da vida.",
-		efeito : function(){
-		}
+		descricao : "Recupera 30% da vida."
 	};
 itens.push(dadosItem);
 
 var	dadosItem = {
 		numero : 2,
 		nome : "Ataque",
-		descricao : "Aumenta o ataque por 1 minuto.",
-		efeito : function(){
-		}
+		descricao : "Aumenta o ataque por 1 minuto."
 	};
 itens.push(dadosItem);
 
 var	dadosItem = {
 		numero : 3,
 		nome : "Defesa",
-		descricao : "Aumenta a defesa por 1 minuto.",
-		efeito : function(){
-		}
+		descricao : "Aumenta a defesa por 1 minuto."
 	};
 itens.push(dadosItem);
 
 var	dadosItem = {
 		numero : 4,
 		nome : "Experiência",
-		descricao : "Dobra a experiência ganha por 1 minuto.",
-		efeito : function(){
-		}
+		descricao : "Dobra a experiência ganha por 1 minuto."
 	};
 itens.push(dadosItem);
 
 var	dadosItem = {
 		numero : 5,
 		nome : "Ataque Mágico",
-		descricao : "Aumenta o ataque mágico por 1 minuto.",
-		efeito : function(){
-		}
+		descricao : "Aumenta o ataque mágico por 1 minuto."
 	};
 itens.push(dadosItem);
 
 var	dadosItem = {
 		numero : 6,
 		nome : "Defesa Mágica",
-		descricao : "Aumenta a defesa mágica por 1 minuto.",
-		efeito : function(){
-		}
+		descricao : "Aumenta a defesa mágica por 1 minuto."
 	};
 itens.push(dadosItem);
+
+function usarItem1(){
+	if(jogando){
+		if(!item1Ativo){
+			if (jogador.item1){
+				if(atualVida.innerHTML < jogador.vida){
+					recuperarVida = Math.floor(jogador.vida / 100 * 30);
+					if(atualVida.innerHTML + recuperarVida > jogador.vida){
+						atualVida.innerHTML = jogador.vida;
+					} else {
+						atualVida.innerHTML = atualVida.innerHTML + recuperarVida;
+					}
+				} else {
+					txtStatus.innerHTML = "A vida ja está no máximo.";
+				}
+			} else {
+				txtStatus.innerHTML = "Não tem esse item.";
+			}
+		} else {
+			txtStatus.innerHTML = "Não pode usar o item várias vezes seguidas.";
+		}
+	}
+}
 
 function mostrarInfoItem(id){
 	nomeItem.innerHTML = itens[id].nome;
