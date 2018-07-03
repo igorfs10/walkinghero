@@ -6,7 +6,13 @@ var itens = [],
 	quantidadeItem5 = document.getElementById("quantidadeItem5"),
 	quantidadeItem6 = document.getElementById("quantidadeItem6"),
 	nomeItem = document.getElementById("nomeItem"),
-	descricaoItem = document.getElementById("descricaoItem");
+	descricaoItem = document.getElementById("descricaoItem"),
+	item1Ativo = false,
+	item2Ativo = false,
+	item3Ativo = false,
+	item4Ativo = false,
+	item5Ativo = false,
+	item6Ativo = false;
 	
 var	dadosItem = {
 		numero : 0,

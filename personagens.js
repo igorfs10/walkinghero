@@ -5,9 +5,13 @@ var imagem = "",
 	atualVida = document.getElementById("atualVida"),
 	totalVida = document.getElementById("totalVida"),
 	totalAtaque = document.getElementById("totalAtaque"),
+	bonusAtaque = document.getElementById("bonusAtaque"),
 	totalDefesa = document.getElementById("totalDefesa"),
+	bonusDefesa = document.getElementById("bonusDefesa"),
 	totalAtaqueMagico = document.getElementById("totalAtaqueMagico"),
-	totalDefesaMagica = document.getElementById("totalDefesaMagica");
+	bonusAtaqueMagico = document.getElementById("bonusAtaqueMagico"),
+	totalDefesaMagica = document.getElementById("totalDefesaMagica"),
+	bonusDefesaMagica = document.getElementById("bonusDefesaMagica");
 	
 function escolherPersonagem(nomePersonagem){
 	if(nomePersonagem === "Guerreiro"){
@@ -15,21 +19,21 @@ function escolherPersonagem(nomePersonagem){
 		numero : 1,
 		nome : "Guerreiro",
 		vida : 10,
-		ataque : 2,
-		defesa : 2,
-		ataqueMagico: 1,
-		defesaMagica: 1,
+		ataque : 3,
+		defesa : 3,
+		ataqueMagico: 2,
+		defesaMagica: 2,
 		imagemParado: "imagens/guerreiro/1.png",
 		imagemAndando: "imagens/guerreiro/2.png",
 		imagemAtacando: "",
 		imagemCurando: "",
-		experiencia: 1001,
-		item1: 0,
-		item2: 0,
-		item3: 0,
-		item4: 1,
-		item5: 1,
-		item6: 1
+		experiencia: 0,
+		item1: 5,
+		item2: 5,
+		item3: 5,
+		item4: 5,
+		item5: 5,
+		item6: 5
 		};
 		return personagem;
 	} else if(nomePersonagem === "Mago"){
@@ -37,33 +41,53 @@ function escolherPersonagem(nomePersonagem){
 		numero : 2,
 		nome : "Mago",
 		vida : 10,
-		ataque : 1,
-		defesa : 1,
-		ataqueMagico: 2,
-		defesaMagica: 2,
+		ataque : 2,
+		defesa : 2,
+		ataqueMagico: 3,
+		defesaMagica: 3,
 		imagemParado: "",
 		imagemAndando: "",
 		imagemAtacando: "",
 		imagemCurando: "",
 		experiencia: 0,
-		item1: 1,
-		item2: 1,
-		item3: 1,
-		item4: 0,
-		item5: 0,
-		item6: 0
+		item1: 5,
+		item2: 5,
+		item3: 5,
+		item4: 5,
+		item5: 5,
+		item6: 5
 		};
 		return personagem;
 	}
 }
 	
 function colocarStatusPersonagem(){
+	if(item2Ativo){
+		bonusAtaque.innerHTML =  Math.floor(jogador.ataque / 2);
+	} else {
+		bonusAtaque.innerHTML = "0";
+	}
+	if(item3Ativo){
+		bonusDefesa.innerHTML =  Math.floor(jogador.defesa / 2);
+	} else {
+		bonusDefesa.innerHTML = "0";
+	}
+	if(item5Ativo){
+		bonusAtaqueMagico.innerHTML =  Math.floor(jogador.ataqueMagico / 2);
+	} else {
+		bonusAtaqueMagico.innerHTML = "0";
+	}
+	if(item6Ativo){
+		bonusDefesaMagica.innerHTML =  Math.floor(jogador.defesaMagica / 2);
+	} else {
+		bonusDefesaMagica.innerHTML = "0";
+	}
 	txtNome.innerHTML = jogador.nome;
 	totalVida.innerHTML = jogador.vida;
-	totalAtaque.innerHTML = jogador.ataque;
-	totalDefesa.innerHTML = jogador.defesa;
-	totalAtaqueMagico.innerHTML = jogador.ataqueMagico;
-	totalDefesaMagica.innerHTML = jogador.defesaMagica;
+	totalAtaque.innerHTML = jogador.ataque + parseInt(bonusAtaque.innerHTML);
+	totalDefesa.innerHTML = jogador.defesa + parseInt(bonusDefesa.innerHTML);
+	totalAtaqueMagico.innerHTML = jogador.ataqueMagico + parseInt(bonusAtaqueMagico.innerHTML);
+	totalDefesaMagica.innerHTML = jogador.defesaMagica + parseInt(bonusDefesaMagica.innerHTML);
 }
 
 function apagarStatusPersonagem(){

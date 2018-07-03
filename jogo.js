@@ -41,6 +41,9 @@ function converterTempo(){
 function execucaoJogo(){
 	tempo = tempo + 1;
 	converterTempo();
+	colocarQuantidadeItens();
+	pegarNivel();
+	colocarStatusPersonagem();
 	jogo = setTimeout(execucaoJogo,1000);
 }
 
@@ -60,15 +63,13 @@ function novoJogo(){
 
 function comecarJogo(nomePersonagem){
 	jogador = escolherPersonagem(nomePersonagem);
-	colocarStatusPersonagem();
-	colocarQuantidadeItens();
-	pegarNivel();
-	jogo = setTimeout(execucaoJogo,1000);
 	jogando = true;
 	personagemEscolhido();
 	andando();
 	inicialMapa();
 	aparecerSetas();
+	jogo = setTimeout(execucaoJogo,1000);
+	atualVida.innerHTML = jogador.vida;
 }
 
 function salvarJogo(){
@@ -91,15 +92,12 @@ function carregarJogo(){
 		clearTimeout(jogo);
 		tempo = parseInt(localStorage.getItem("tempoSalvo"));
 		jogador = JSON.parse(localStorage.getItem("jogador"));
-		converterTempo();
-		colocarStatusPersonagem();
-		colocarQuantidadeItens();
-		pegarNivel();
-		jogo = setTimeout(execucaoJogo, 1000);
 		personagemEscolhido();
 		jogando = true;
 		andando();
 		inicialMapa();
 		aparecerSetas();
+		jogo = setTimeout(execucaoJogo, 1000);
+		atualVida.innerHTML = jogador.vida;
 	}
 }
