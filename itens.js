@@ -71,26 +71,44 @@ itens.push(dadosItem);
 
 function desativarItem1(){
 	item1Ativo = false;
+	if(jogando){
+		atualizarJogo();
+	}
 }
 
 function desativarItem2(){
 	item2Ativo = false;
+	if(jogando){
+		atualizarJogo();
+	}
 }
 
 function desativarItem3(){
 	item3Ativo = false;
+	if(jogando){
+		atualizarJogo();
+	}
 }
 
 function desativarItem4(){
 	item4Ativo = false;
+	if(jogando){
+		atualizarJogo();
+	}
 }
 
 function desativarItem5(){
 	item5Ativo = false;
+	if(jogando){
+		atualizarJogo();
+	}
 }
 
 function desativarItem6(){
 	item6Ativo = false;
+	if(jogando){
+		atualizarJogo();
+	}
 }
 
 function itensAtivados(){
@@ -139,6 +157,7 @@ function usarItem1(){
 					}
 					jogador.item1 = jogador.item1 - 1;
 					item1Ativo = true;
+					atualizarJogo();
 					setTimeout(desativarItem1, 5000);
 				} else {
 					txtStatus.innerHTML = "A vida ja está no máximo.";
@@ -156,9 +175,10 @@ function usarItem2(){
 	if(jogando){
 		if(!item2Ativo){
 			if (jogador.item2){
-					jogador.item2 = jogador.item2 - 1;
-					item2Ativo = true;
-					setTimeout(desativarItem2, 60000);
+				jogador.item2 = jogador.item2 - 1;
+				item2Ativo = true;
+				atualizarJogo();
+				setTimeout(desativarItem2, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";
 			}
@@ -172,9 +192,10 @@ function usarItem3(){
 	if(jogando){
 		if(!item3Ativo){
 			if (jogador.item3){
-					jogador.item3 = jogador.item3 - 1;
-					item3Ativo = true;
-					setTimeout(desativarItem3, 60000);
+				jogador.item3 = jogador.item3 - 1;
+				item3Ativo = true;
+				atualizarJogo();
+				setTimeout(desativarItem3, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";
 			}
@@ -188,9 +209,10 @@ function usarItem4(){
 	if(jogando){
 		if(!item4Ativo){
 			if (jogador.item4){
-					jogador.item4 = jogador.item4 - 1;
-					item4Ativo = true;
-					setTimeout(desativarItem4, 60000);
+				jogador.item4 = jogador.item4 - 1;
+				item4Ativo = true;
+				atualizarJogo();
+				setTimeout(desativarItem4, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";
 			}
@@ -204,9 +226,10 @@ function usarItem5(){
 	if(jogando){
 		if(!item5Ativo){
 			if (jogador.item5){
-					jogador.item5 = jogador.item5 - 1;
-					item5Ativo = true;
-					setTimeout(desativarItem5, 60000);
+				jogador.item5 = jogador.item5 - 1;
+				item5Ativo = true;
+				atualizarJogo();
+				setTimeout(desativarItem5, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";
 			}
@@ -220,9 +243,10 @@ function usarItem6(){
 	if(jogando){
 		if(!item6Ativo){
 			if (jogador.item6){
-					jogador.item6 = jogador.item6 - 1;
-					item6Ativo = true;
-					setTimeout(desativarItem6, 60000);
+				jogador.item6 = jogador.item6 - 1;
+				item6Ativo = true;
+				atualizarJogo();
+				setTimeout(desativarItem6, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";
 			}

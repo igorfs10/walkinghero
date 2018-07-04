@@ -41,11 +41,15 @@ function converterTempo(){
 function execucaoJogo(){
 	tempo = tempo + 1;
 	converterTempo();
+	atualizarJogo();
+	jogo = setTimeout(execucaoJogo, 1000);
+}
+
+function atualizarJogo(){
 	colocarQuantidadeItens();
 	pegarNivel();
 	colocarStatusPersonagem();
 	itensAtivados();
-	jogo = setTimeout(execucaoJogo, 1000);
 }
 
 function novoJogo(){
@@ -81,7 +85,6 @@ function carregarJogo(){
 		pararJogo();
 		tempo = parseInt(localStorage.getItem("tempoSalvo"));
 		jogador = JSON.parse(localStorage.getItem("jogador"));
-		personagemEscolhido();
 		iniciarJogo();
 	}
 }
@@ -98,8 +101,8 @@ function iniciarJogo(){
 
 function pararJogo(){
 	if(jogando){
-			pararAnimacao();
-		}
+		pararAnimacao();
+	}
 	clearTimeout(jogo);
 	desativarItem1();
 	desativarItem2();
@@ -107,5 +110,4 @@ function pararJogo(){
 	desativarItem4();
 	desativarItem5();
 	desativarItem6();
-	itensAtivados();
 }
