@@ -44,16 +44,14 @@ function execucaoJogo(){
 	colocarQuantidadeItens();
 	pegarNivel();
 	colocarStatusPersonagem();
-	jogo = setTimeout(execucaoJogo,1000);
+	itensAtivados();
+	jogo = setTimeout(execucaoJogo, 1000);
 }
 
 function novoJogo(){
-	if(jogando){
-		pararAnimacao();
-	}
+	pararJogo();
 	tempo = 0;
 	converterTempo();
-	clearTimeout(jogo);
 	apagarStatusPersonagem();
 	apagarQuantidadeItens();
 	apagarNivel();
@@ -63,13 +61,7 @@ function novoJogo(){
 
 function comecarJogo(nomePersonagem){
 	jogador = escolherPersonagem(nomePersonagem);
-	jogando = true;
-	personagemEscolhido();
-	andando();
-	inicialMapa();
-	aparecerSetas();
-	jogo = setTimeout(execucaoJogo, 1);
-	atualVida.innerHTML = jogador.vida;
+	iniciarJogo();
 }
 
 function salvarJogo(){
@@ -86,18 +78,34 @@ function carregarJogo(){
 	if (isNaN(parseInt(localStorage.getItem("tempoSalvo")))){
 		txtStatus.innerHTML = "Não existe jogo salvo";
 	} else {
-		if(jogando){
-			pararAnimacao();
-		}
-		clearTimeout(jogo);
+		pararJogo();
 		tempo = parseInt(localStorage.getItem("tempoSalvo"));
 		jogador = JSON.parse(localStorage.getItem("jogador"));
 		personagemEscolhido();
-		jogando = true;
-		andando();
-		inicialMapa();
-		aparecerSetas();
-		jogo = setTimeout(execucaoJogo, 1);
-		atualVida.innerHTML = jogador.vida;
+		iniciarJogo();
 	}
+}
+
+function iniciarJogo(){
+	personagemEscolhido();
+	jogando = true;
+	andando();
+	inicialMapa();
+	aparecerSetas();
+	jogo = setTimeout(execucaoJogo, 1);
+	atualVida.innerHTML = jogador.vida;
+}
+
+function pararJogo(){
+	if(jogando){
+			pararAnimacao();
+		}
+	clearTimeout(jogo);
+	desativarItem1();
+	desativarItem2();
+	desativarItem3();
+	desativarItem4();
+	desativarItem5();
+	desativarItem6();
+	itensAtivados();
 }
