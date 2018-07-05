@@ -9,7 +9,6 @@ var document = document,
 	txtStatus = document.getElementById("txtStatus"),
 	personagemJogador = document.getElementById("personagemJogador"),
 	personagemInimigo = document.getElementById("personagemInimigo"),
-	batalhando,
 	jogador,
 	inimigo,
 	jogo;
@@ -42,6 +41,10 @@ function execucaoJogo(){
 	tempo = tempo + 1;
 	converterTempo();
 	atualizarJogo();
+	comecarBatalha();
+	if(batalhando){
+		batalha();
+	}
 	jogo = setTimeout(execucaoJogo, 1000);
 }
 
@@ -103,6 +106,7 @@ function pararJogo(){
 	if(jogando){
 		pararAnimacao();
 	}
+	batalhando = false;
 	clearTimeout(jogo);
 	desativarItem1();
 	desativarItem2();

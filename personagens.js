@@ -101,9 +101,14 @@ function apagarStatusPersonagem(){
 }
 
 function andando(){
-	if(imagem === jogador.imagemParado){
-		imagem = jogador.imagemAndando;
-		jogadorImagem.src = imagem;
+	if(!batalhando){
+		if(imagem === jogador.imagemParado){
+			imagem = jogador.imagemAndando;
+			jogadorImagem.src = imagem;
+		} else {
+			imagem = jogador.imagemParado;
+			jogadorImagem.src = imagem;
+		}
 	} else {
 		imagem = jogador.imagemParado;
 		jogadorImagem.src = imagem;
