@@ -40,7 +40,10 @@ function converterTempo(){
 function execucaoJogo(){
 	tempo = tempo + 1;
 	converterTempo();
-	atualizarJogo();
+	if(txtMapa.innerHTML === "Cidade" && atualVida.innerHTML > totalVida.innerHTML){
+		atualVida.innerHTML = parseInt(atualVida.innerHTML) + 1;
+		atualizarJogo();
+	}
 	comecarBatalha();
 	if(batalhando){
 		batalha();
@@ -99,6 +102,7 @@ function iniciarJogo(){
 	inicialMapa();
 	aparecerSetas();
 	jogo = setTimeout(execucaoJogo, 1);
+	atualizarJogo();
 	atualVida.innerHTML = jogador.vida;
 }
 
