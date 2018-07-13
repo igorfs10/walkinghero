@@ -31,10 +31,10 @@ function jogadorAtaca(){
 	inimigo.vida = inimigo.vida - dano;
 	if(inimigo.vida < 1){
 		if(item4Ativo){
-			txtStatus.innerHTML = "Você derrotou " + inimigo.nome + " " + inimigo.experiencia * 2;
+			txtStatus.innerHTML = inimigo.nome + " derrotado. Exp: " + inimigo.experiencia * 2 + ".";
 			jogador.experiencia = jogador.experiencia + inimigo.experiencia * 2
 		} else {
-			txtStatus.innerHTML = "Você derrotou " + inimigo.nome + " " + inimigo.experiencia;
+			txtStatus.innerHTML = inimigo.nome + " derrotado. Exp: " + inimigo.experiencia + ".";
 			jogador.experiencia = jogador.experiencia + inimigo.experiencia;
 		}
 		batalhando = false;
@@ -42,4 +42,9 @@ function jogadorAtaca(){
 }
 
 function inimigoAtaca(){
+	dano = inimigo.ataque - jogador.defesa;
+	if(dano < 1) {
+		dano = 1;
+	}
+	atualVida.innerHTML = parseInt(atualVida.innerHTML) - dano;
 }

@@ -158,7 +158,7 @@ function usarItem1(){
 					jogador.item1 = jogador.item1 - 1;
 					item1Ativo = true;
 					atualizarJogo();
-					setTimeout(desativarItem1, 5000);
+					setTimeout(desativarItem1, 7000);
 				} else {
 					txtStatus.innerHTML = "A vida ja está no máximo.";
 				}
