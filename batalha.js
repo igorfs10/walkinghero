@@ -30,13 +30,14 @@ function jogadorAtaca(){
 	}
 	inimigo.vida = inimigo.vida - dano;
 	if(inimigo.vida < 1){
+		experienciaGanha = 0;
 		if(item4Ativo){
-			txtStatus.innerHTML = inimigo.nome + " derrotado. Exp: " + inimigo.experiencia * 2 + ".";
-			jogador.experiencia = jogador.experiencia + inimigo.experiencia * 2
+			experienciaGanha = inimigo.experiencia * 2;
 		} else {
-			txtStatus.innerHTML = inimigo.nome + " derrotado. Exp: " + inimigo.experiencia + ".";
-			jogador.experiencia = jogador.experiencia + inimigo.experiencia;
+			experienciaGanha = inimigo.experiencia;
 		}
+		jogador.experiencia = jogador.experiencia + experienciaGanha;
+		txtStatus.innerHTML = `${inimigo.nome} derrotado. Ganhou ${experienciaGanha} de experiência.`;
 		batalhando = false;
 	}
 }
