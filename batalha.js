@@ -1,8 +1,9 @@
 "use strict";
+var sorteio;
 function comecarBatalha(){
 	if(!batalhando){
 		if(txtMapa.innerText !== "Cidade"){
-			var sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+			sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
 			if(sorteio < 20){
 				batalhando = true;
 				escolherInimigo(txtMapa.innerText);
