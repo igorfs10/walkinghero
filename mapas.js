@@ -1,3 +1,4 @@
+"use strict";
 var txtMapa = document.getElementById("txtMapa"),
 	linhaCenario = document.getElementById("linhaCenario"),
 	setaEsquerda = document.getElementById("setaEsquerda"),
@@ -30,7 +31,7 @@ var primeiro = 1,
 	atual = 0;
 
 function mudarMapa(numero){
-	txtMapa.innerHTML = mapas[numero].nome;
+	txtMapa.innerText = mapas[numero].nome;
 	linhaCenario.style.backgroundImage = mapas[numero].imagem;
 }
 
@@ -40,9 +41,9 @@ function inicialMapa(){
 
 function proximoMapa(){
 	if(jogando && !batalhando){
-		for(atual = 0; mapas[atual].nome !== txtMapa.innerHTML; atual++){}
+		for(atual = 0; mapas[atual].nome !== txtMapa.innerText; atual++){}
 		if(atual === ultimo){
-			txtStatus.innerHTML = "Esse é o ultimo local.";
+			txtStatus.innerText = "Esse é o ultimo local.";
 		} else {
 			mudarMapa(atual + 1);
 			setaEsquerda.style.display = "block";
@@ -51,15 +52,15 @@ function proximoMapa(){
 			}
 		}
 	} else if(batalhando){
-		txtStatus.innerHTML = "Não pode mudar o local enquanto batalha.";
+		txtStatus.innerText = "Não pode mudar o local enquanto batalha.";
 	}
 }
 
 function anteriorMapa(){
 	if(jogando && !batalhando){
-		for(atual = 0; mapas[atual].nome !== txtMapa.innerHTML; atual++){}
+		for(atual = 0; mapas[atual].nome !== txtMapa.innerText; atual++){}
 		if(atual === primeiro){
-			txtStatus.innerHTML = "Esse é o primeiro local.";
+			txtStatus.innerText = "Esse é o primeiro local.";
 		} else {
 			mudarMapa(atual - 1);
 			setaDireita.style.display = "block";
@@ -68,7 +69,7 @@ function anteriorMapa(){
 			}
 		}
 	} else if(batalhando){
-		txtStatus.innerHTML = "Não pode mudar o local enquanto batalha.";
+		txtStatus.innerText = "Não pode mudar o local enquanto batalha.";
 	}
 }
 

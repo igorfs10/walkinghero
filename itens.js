@@ -1,3 +1,4 @@
+"use strict";
 var itens = [],
 	quantidadeItem1 = document.getElementById("quantidadeItem1"),
 	quantidadeItem2 = document.getElementById("quantidadeItem2"),
@@ -13,6 +14,7 @@ var itens = [],
 	item6 = document.getElementById("item6"),
 	nomeItem = document.getElementById("nomeItem"),
 	descricaoItem = document.getElementById("descricaoItem"),
+	pExperiencia = document.getElementById("pExperiencia"),
 	item1Ativo = false,
 	item2Ativo = false,
 	item3Ativo = false,
@@ -93,7 +95,7 @@ function desativarItem3(){
 function desativarItem4(){
 	item4Ativo = false;
 	item4.dataset.selecionado = "desativado";
-	txtExperiencia.style.color = "#aaaaaa";
+	pExperiencia.style.color = "#aaaaaa";
 }
 
 function desativarItem5(){
@@ -116,26 +118,26 @@ function usarItem1(){
 	if(jogando){
 		if(!item1Ativo){
 			if (jogador.item1){
-				if(atualVida.innerHTML < jogador.vida){
-					recuperarVida = Math.floor(jogador.vida / 100 * 30);
-					if(parseInt(atualVida.innerHTML) + recuperarVida > jogador.vida){
-						atualVida.innerHTML = jogador.vida;
+				if(atualVida.innerText < jogador.vida){
+					var recuperarVida = Math.floor(jogador.vida / 100 * 30);
+					if(parseInt(atualVida.innerText) + recuperarVida > jogador.vida){
+						atualVida.innerText = jogador.vida;
 					} else {
-						atualVida.innerHTML = parseInt(atualVida.innerHTML) + recuperarVida;
+						atualVida.innerText = parseInt(atualVida.innerText) + recuperarVida;
 					}
 					jogador.item1 = jogador.item1 - 1;
 					item1Ativo = true;
-					quantidadeItem1.innerHTML = jogador.item1;
+					quantidadeItem1.innerText = jogador.item1;
 					item1.dataset.selecionado = "ativado";
 					setTimeout(desativarItem1, 10000);
 				} else {
-					txtStatus.innerHTML = "A vida ja está no máximo.";
+					txtStatus.innerText = "A vida ja está no máximo.";
 				}
 			} else {
-				txtStatus.innerHTML = "Não tem esse item.";
+				txtStatus.innerText = "Não tem esse item.";
 			}
 		} else {
-			txtStatus.innerHTML = "Não pode usar o item várias vezes seguidas.";
+			txtStatus.innerText = "Não pode usar o item várias vezes seguidas.";
 		}
 	}
 }
@@ -146,15 +148,15 @@ function usarItem2(){
 			if (jogador.item2){
 				jogador.item2 = jogador.item2 - 1;
 				item2Ativo = true;
-				quantidadeItem2.innerHTML = jogador.item2;
+				quantidadeItem2.innerText = jogador.item2;
 				item2.dataset.selecionado = "ativado";
 				atualizarAtaque();
 				setTimeout(desativarItem2, 60000);
 			} else {
-				txtStatus.innerHTML = "Não tem esse item.";
+				txtStatus.innerText = "Não tem esse item.";
 			}
 		} else {
-			txtStatus.innerHTML = "O item ja está em uso.";
+			txtStatus.innerText = "O item ja está em uso.";
 		}
 	}
 }
@@ -165,15 +167,15 @@ function usarItem3(){
 			if (jogador.item3){
 				jogador.item3 = jogador.item3 - 1;
 				item3Ativo = true;
-				quantidadeItem3.innerHTML = jogador.item3;
+				quantidadeItem3.innerText = jogador.item3;
 				item3.dataset.selecionado = "ativado";
 				atualizarDefesa();
 				setTimeout(desativarItem3, 60000);
 			} else {
-				txtStatus.innerHTML = "Não tem esse item.";
+				txtStatus.innerText = "Não tem esse item.";
 			}
 		} else {
-			txtStatus.innerHTML = "O item ja está em uso.";
+			txtStatus.innerText = "O item ja está em uso.";
 		}
 	}
 }
@@ -184,15 +186,15 @@ function usarItem4(){
 			if (jogador.item4){
 				jogador.item4 = jogador.item4 - 1;
 				item4Ativo = true;
-				quantidadeItem4.innerHTML = jogador.item4;
+				quantidadeItem4.innerText = jogador.item4;
 				item4.dataset.selecionado = "ativado";
-				txtExperiencia.style.color = "#ef5350";
+				pExperiencia.style.color = "#ef5350";
 				setTimeout(desativarItem4, 60000);
 			} else {
-				txtStatus.innerHTML = "Não tem esse item.";
+				txtStatus.innerText = "Não tem esse item.";
 			}
 		} else {
-			txtStatus.innerHTML = "O item ja está em uso.";
+			txtStatus.innerText = "O item ja está em uso.";
 		}
 	}
 }
@@ -203,15 +205,15 @@ function usarItem5(){
 			if (jogador.item5){
 				jogador.item5 = jogador.item5 - 1;
 				item5Ativo = true;
-				quantidadeItem5.innerHTML = jogador.item5;
+				quantidadeItem5.innerText = jogador.item5;
 				item5.dataset.selecionado = "ativado";
 				atualizarAtaqueMagico();
 				setTimeout(desativarItem5, 60000);
 			} else {
-				txtStatus.innerHTML = "Não tem esse item.";
+				txtStatus.innerText = "Não tem esse item.";
 			}
 		} else {
-			txtStatus.innerHTML = "O item ja está em uso.";
+			txtStatus.innerText = "O item ja está em uso.";
 		}
 	}
 }
@@ -222,38 +224,38 @@ function usarItem6(){
 			if (jogador.item6){
 				jogador.item6 = jogador.item6 - 1;
 				item6Ativo = true;
-				quantidadeItem6.innerHTML = jogador.item6;
+				quantidadeItem6.innerText = jogador.item6;
 				item6.dataset.selecionado = "ativado";
 				atualizarDefesaMagica();
 				setTimeout(desativarItem6, 60000);
 			} else {
-				txtStatus.innerHTML = "Não tem esse item.";
+				txtStatus.innerText = "Não tem esse item.";
 			}
 		} else {
-			txtStatus.innerHTML = "O item ja está em uso.";
+			txtStatus.innerText = "O item ja está em uso.";
 		}
 	}
 }
 
 function mostrarInfoItem(id){
-	nomeItem.innerHTML = itens[id].nome;
-	descricaoItem.innerHTML = itens[id].descricao;
+	nomeItem.innerText = itens[id].nome;
+	descricaoItem.innerText = itens[id].descricao;
 }
 
 function colocarQuantidadeItens(){
-	quantidadeItem1.innerHTML = jogador.item1;
-	quantidadeItem2.innerHTML = jogador.item2;
-	quantidadeItem3.innerHTML = jogador.item3;
-	quantidadeItem4.innerHTML = jogador.item4;
-	quantidadeItem5.innerHTML = jogador.item5;
-	quantidadeItem6.innerHTML = jogador.item6;
+	quantidadeItem1.innerText = jogador.item1;
+	quantidadeItem2.innerText = jogador.item2;
+	quantidadeItem3.innerText = jogador.item3;
+	quantidadeItem4.innerText = jogador.item4;
+	quantidadeItem5.innerText = jogador.item5;
+	quantidadeItem6.innerText = jogador.item6;
 }
 
 function apagarQuantidadeItens(){
-	quantidadeItem1.innerHTML = "";
-	quantidadeItem2.innerHTML = "";
-	quantidadeItem3.innerHTML = "";
-	quantidadeItem4.innerHTML = "";
-	quantidadeItem5.innerHTML = "";
-	quantidadeItem6.innerHTML = "";
+	quantidadeItem1.innerText = "";
+	quantidadeItem2.innerText = "";
+	quantidadeItem3.innerText = "";
+	quantidadeItem4.innerText = "";
+	quantidadeItem5.innerText = "";
+	quantidadeItem6.innerText = "";
 }

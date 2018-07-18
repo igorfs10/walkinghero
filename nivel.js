@@ -1,3 +1,4 @@
+"use strict";
 var txtNivel = document.getElementById("txtNivel"),
 	txtExperiencia = document.getElementById("txtExperiencia"),
 	txtExperienciaProximo = document.getElementById("txtExperienciaProximo"),
@@ -14,17 +15,16 @@ function pegarNivel(){
 	var nivelJogador,
 		experiencia = jogador.experiencia,
 		experienciaProximo;
-	for (i = 0; experiencia >= nivel[i]; i++){
+	for (nivelJogador = 0; experiencia >= nivel[nivelJogador]; nivelJogador++){
 	}
-	nivelJogador = i;
-	experienciaProximo = nivel[i];
-	txtNivel.innerHTML = nivelJogador;
-	txtExperiencia.innerHTML = experiencia;
-	txtExperienciaProximo.innerHTML = experienciaProximo;
+	experienciaProximo = nivel[nivelJogador];
+	txtNivel.innerText = nivelJogador;
+	txtExperiencia.innerText = experiencia;
+	txtExperienciaProximo.innerText = experienciaProximo;
 }
 
 function apagarNivel(){
-	txtNivel.innerHTML = "";
-	txtExperiencia.innerHTML = "";
-	txtExperienciaProximo.innerHTML = "";
+	txtNivel.innerText = "";
+	txtExperiencia.innerText = "";
+	txtExperienciaProximo.innerText = "";
 }

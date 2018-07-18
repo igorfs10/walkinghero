@@ -1,5 +1,5 @@
-var document = document,
-	tempo = 0,
+"use strict";
+var tempo = 0,
 	jogando = false,
 	batalhando = false,
 	segundos = document.getElementById("txtSegundos"),
@@ -20,28 +20,28 @@ function converterTempo(){
 		segundo  = Math.floor((tempo % 60));
 	
 	if(segundo < 10){
-		segundos.innerHTML = "0" + segundo;
+		segundos.innerText = "0" + segundo;
 	} else {
-		segundos.innerHTML = segundo;
+		segundos.innerText = segundo;
 	}
 	if(minuto < 10){
-		minutos.innerHTML = "0" + minuto;
+		minutos.innerText = "0" + minuto;
 	} else {
-		minutos.innerHTML = minuto;
+		minutos.innerText = minuto;
 	}
 	if(hora < 10){
-		horas.innerHTML = "0" + hora;
+		horas.innerText = "0" + hora;
 	} else {
-		horas.innerHTML = hora;
+		horas.innerText = hora;
 	}
-	dias.innerHTML = dia;
+	dias.innerText = dia;
 }
 	
 function execucaoJogo(){
 	tempo = tempo + 1;
 	converterTempo();
-	if(txtMapa.innerHTML === "Cidade" && parseInt(atualVida.innerHTML) < parseInt(totalVida.innerHTML)){
-		atualVida.innerHTML = parseInt(atualVida.innerHTML) + 1;
+	if(txtMapa.innerText === "Cidade" && parseInt(atualVida.innerText) < parseInt(totalVida.innerText)){
+		atualVida.innerText = parseInt(atualVida.innerText) + 1;
 	}
 	comecarBatalha();
 	if(batalhando){
@@ -68,17 +68,17 @@ function comecarJogo(nomePersonagem){
 
 function salvarJogo(){
 	if(jogando === true){
-		localStorage.setItem("nomeSalvo", txtNome.innerHTML);
+		localStorage.setItem("nomeSalvo", txtNome.innerText);
 		localStorage.setItem("tempoSalvo", tempo);
 		localStorage.setItem("jogador", JSON.stringify(jogador));
 	} else {
-		txtStatus.innerHTML = "Precisa estar jogando para salvar o jogo.";
+		txtStatus.innerText = "Precisa estar jogando para salvar o jogo.";
 	}
 }
 
 function carregarJogo(){
 	if (isNaN(parseInt(localStorage.getItem("tempoSalvo")))){
-		txtStatus.innerHTML = "Não existe jogo salvo";
+		txtStatus.innerText = "Não existe jogo salvo";
 	} else {
 		pararJogo();
 		tempo = parseInt(localStorage.getItem("tempoSalvo"));
@@ -94,8 +94,8 @@ function iniciarJogo(){
 	inicialMapa();
 	aparecerSetas();
 	jogo = setTimeout(execucaoJogo, 1);
-	txtNome.innerHTML = jogador.nome;
-	atualVida.innerHTML = jogador.vida;
+	txtNome.innerText = jogador.nome;
+	atualVida.innerText = jogador.vida;
 	colocarStatusPersonagem();
 	colocarQuantidadeItens();
 	pegarNivel();

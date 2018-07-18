@@ -1,4 +1,6 @@
+"use strict";
 var imagem = "",
+	animacao,
 	jogadorImagem = document.getElementById("jogadorImagem"),
 	inimigoImagem = document.getElementById("inimigoImagem"),
 	txtNome = document.getElementById("txtNome"),
@@ -62,61 +64,61 @@ function escolherPersonagem(nomePersonagem){
 }
 	
 function colocarStatusPersonagem(){
-	totalVida.innerHTML = jogador.vida;
-	totalAtaque.innerHTML = jogador.ataque;
-	totalDefesa.innerHTML = jogador.defesa;
-	totalAtaqueMagico.innerHTML = jogador.ataqueMagico;
-	totalDefesaMagica.innerHTML = jogador.defesaMagica;
+	totalVida.innerText = jogador.vida;
+	totalAtaque.innerText = jogador.ataque;
+	totalDefesa.innerText = jogador.defesa;
+	totalAtaqueMagico.innerText = jogador.ataqueMagico;
+	totalDefesaMagica.innerText = jogador.defesaMagica;
 }
 
 function atualizarAtaque(){
 	if(item2Ativo){
-		bonusAtaque.innerHTML =  Math.floor(jogador.ataque / 2);
-		totalAtaque.innerHTML = jogador.ataque + parseInt(bonusAtaque.innerHTML);
+		bonusAtaque.innerText =  Math.floor(jogador.ataque / 2);
+		totalAtaque.innerText = jogador.ataque + parseInt(bonusAtaque.innerText);
 	} else {
-		bonusAtaque.innerHTML = "";
-		totalAtaque.innerHTML = jogador.ataque;
+		bonusAtaque.innerText = "";
+		totalAtaque.innerText = jogador.ataque;
 	}
 }
 
 function atualizarDefesa(){
 	if(item3Ativo){
-		bonusDefesa.innerHTML =  Math.floor(jogador.defesa / 2);
-		totalDefesa.innerHTML = jogador.defesa + parseInt(bonusDefesa.innerHTML);
+		bonusDefesa.innerText =  Math.floor(jogador.defesa / 2);
+		totalDefesa.innerText = jogador.defesa + parseInt(bonusDefesa.innerText);
 	} else {
-		bonusDefesa.innerHTML = "";
-		totalDefesa.innerHTML = jogador.defesa;
+		bonusDefesa.innerText = "";
+		totalDefesa.innerText = jogador.defesa;
 	}
 }
 
 function atualizarAtaqueMagico(){
 	if(item5Ativo){
-		bonusAtaqueMagico.innerHTML =  Math.floor(jogador.ataqueMagico / 2);
-		totalAtaqueMagico.innerHTML = jogador.ataqueMagico + parseInt(bonusAtaqueMagico.innerHTML);
+		bonusAtaqueMagico.innerText =  Math.floor(jogador.ataqueMagico / 2);
+		totalAtaqueMagico.innerText = jogador.ataqueMagico + parseInt(bonusAtaqueMagico.innerText);
 	} else {
-		bonusAtaqueMagico.innerHTML = "";
-		totalAtaqueMagico.innerHTML = jogador.ataqueMagico;
+		bonusAtaqueMagico.innerText = "";
+		totalAtaqueMagico.innerText = jogador.ataqueMagico;
 	}
 }
 
 function atualizarDefesaMagica(){
 	if(item6Ativo){
-		bonusDefesaMagica.innerHTML =  Math.floor(jogador.defesaMagica / 2);
-		totalDefesaMagica.innerHTML = jogador.defesaMagica + parseInt(bonusDefesaMagica.innerHTML);
+		bonusDefesaMagica.innerText =  Math.floor(jogador.defesaMagica / 2);
+		totalDefesaMagica.innerText = jogador.defesaMagica + parseInt(bonusDefesaMagica.innerText);
 	} else {
-		bonusDefesaMagica.innerHTML = "";
-		totalDefesaMagica.innerHTML = jogador.defesaMagica;
+		bonusDefesaMagica.innerText = "";
+		totalDefesaMagica.innerText = jogador.defesaMagica;
 	}
 }
 
 function apagarStatusPersonagem(){
-	txtNome.innerHTML = "Walking Hero";
-	atualVida.innerHTML = "";
-	totalVida.innerHTML = "";
-	totalAtaque.innerHTML = "";
-	totalDefesa.innerHTML = "";
-	totalAtaqueMagico.innerHTML = "";
-	totalDefesaMagica.innerHTML = "";
+	txtNome.innerText = "Walking Hero";
+	atualVida.innerText = "";
+	totalVida.innerText = "";
+	totalAtaque.innerText = "";
+	totalDefesa.innerText = "";
+	totalAtaqueMagico.innerText = "";
+	totalDefesaMagica.innerText = "";
 }
 
 function andando(){
@@ -145,12 +147,12 @@ function mostrarPersonagens(){
 	personagemInimigo.setAttribute("onclick",  "comecarJogo('Mago')");
 	jogadorImagem.src = "imagens/guerreiro/1.png";
 	inimigoImagem.src = "imagens/guerreiro/2.png";
-	txtStatus.innerHTML = "Escolha o personagem";
+	txtStatus.innerText = "Escolha o personagem";
 }
 
 function personagemEscolhido(){
 	personagemJogador.removeAttribute("onclick");
 	personagemInimigo.removeAttribute("onclick");
 	inimigoImagem.src = "";
-	txtStatus.innerHTML = "";
+	txtStatus.innerText = "";
 }

@@ -1,12 +1,12 @@
+"use strict";
 function comecarBatalha(){
 	if(!batalhando){
-		local = txtMapa.innerHTML;
-		if(local != "Cidade"){
-			sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+		if(txtMapa.innerText !== "Cidade"){
+			var sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
 			if(sorteio < 20){
 				batalhando = true;
-				inimigo = escolherInimigo(local);
-				txtStatus.innerHTML = `${inimigo.nome} apareceu.`;
+				escolherInimigo(txtMapa.innerText);
+				txtStatus.innerText = `${inimigo.nome} apareceu.`;
 			}
 		}
 	}
@@ -22,34 +22,34 @@ function batalha(){
 }
 
 function jogadorAtaca(){
-	dano = jogador.ataque - inimigo.defesa;
+	var dano = jogador.ataque - inimigo.defesa;
 	if(dano < 1) {
 		dano = 1;
 	}
 	inimigo.vida = inimigo.vida - dano;
 	if(inimigo.vida < 1){
-		experienciaGanha = 0;
+		var experienciaGanha = 0;
 		if(item4Ativo){
 			experienciaGanha = inimigo.experiencia * 2;
 		} else {
 			experienciaGanha = inimigo.experiencia;
 		}
 		jogador.experiencia = jogador.experiencia + experienciaGanha;
-		txtStatus.innerHTML = `${inimigo.nome} derrotado. Ganhou ${experienciaGanha} de experiência.`;
+		txtStatus.innerText = `${inimigo.nome} derrotado. Ganhou ${experienciaGanha} de experiência.`;
 		batalhando = false;
 		pegarNivel();
 	}
 }
 
 function inimigoAtaca(){
-	dano = inimigo.ataque - jogador.defesa;
+	var dano = inimigo.ataque - jogador.defesa;
 	if(dano < 1) {
 		dano = 1;
 	}
-	atualVida.innerHTML = parseInt(atualVida.innerHTML) - dano;
-	if(parseInt(atualVida.innerHTML) < 1){
+	atualVida.innerText = parseInt(atualVida.innerText) - dano;
+	if(parseInt(atualVida.innerText) < 1){
 		pararJogo();
 		iniciarJogo();
-		txtStatus.innerHTML = `Você foi derrotado pelo ${inimigo.nome}.`;
+		txtStatus.innerText = `Você foi derrotado pelo ${inimigo.nome}.`;
 	}
 }

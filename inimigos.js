@@ -1,11 +1,12 @@
+"use strict";
 function escolherInimigo(local){
 	if(local === "Floresta"){
-		sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+		var sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
 		if(sorteio < 60){
-			var inimigo = {
+			inimigo = {
 				numero : 1,
 				nome : "Rato",
-				vida : 15,
+				vida : 5,
 				ataque : 1,
 				defesa : 1,
 				ataqueMagico: 1,
@@ -15,12 +16,11 @@ function escolherInimigo(local){
 				experiencia: 2,
 				item: 1
 			};
-			return inimigo;
 		} else if(sorteio < 90){
-			var inimigo = {
+			inimigo = {
 				numero : 2,
 				nome : "Lobo",
-				vida : 18,
+				vida : 9,
 				ataque : 2,
 				defesa : 1,
 				ataqueMagico: 1,
@@ -30,12 +30,11 @@ function escolherInimigo(local){
 				experiencia: 4,
 				item: 2
 			};
-			return inimigo;
 		} else {
-			var inimigo = {
+			inimigo = {
 				numero : 3,
 				nome : "Leão",
-				vida : 20,
+				vida : 12,
 				ataque : 3,
 				defesa : 2,
 				ataqueMagico: 2,
@@ -45,7 +44,6 @@ function escolherInimigo(local){
 				experiencia: 8,
 				item: 3
 			};
-			return inimigo;
 		}
 	}
 }
