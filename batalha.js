@@ -6,7 +6,7 @@ function comecarBatalha(){
 			if(sorteio < 20){
 				batalhando = true;
 				inimigo = escolherInimigo(local);
-				txtStatus.innerHTML = inimigo.nome + " apareceu.";
+				txtStatus.innerHTML = `${inimigo.nome} apareceu.`;
 			}
 		}
 	}

@@ -17,8 +17,8 @@ function pegarNivel(){
 	}
 	nivelJogador = i;
 	experienciaProximo = nivel[i];
-	txtNivel.innerHTML = "Nivel: " + nivelJogador;
-	txtExperiencia.innerHTML = "Experiência: " + experiencia + "/" + experienciaProximo;
+	txtNivel.innerHTML = `Nivel: ${nivelJogador}`;
+	txtExperiencia.innerHTML = `Experiência: ${experiencia}/${experienciaProximo}`;
 	if(item4Ativo){
 		txtExperiencia.style.color = "#ef5350";
 	} else {
