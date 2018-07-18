@@ -1,5 +1,5 @@
 "use strict";
-var itens = [],
+let itens = [],
 	quantidadeItem1 = document.getElementById("quantidadeItem1"),
 	quantidadeItem2 = document.getElementById("quantidadeItem2"),
 	quantidadeItem3 = document.getElementById("quantidadeItem3"),
@@ -22,54 +22,58 @@ var itens = [],
 	item5Ativo = false,
 	item6Ativo = false;
 	
-var	dadosItem = {
-		numero : 0,
-		nome : "?????",
-		descricao : "?????????"
-	};
-itens.push(dadosItem);
+criarItens();
 
-var	dadosItem = {
-		numero : 1,
-		nome : "Poção",
-		descricao : "Recupera 30% da vida."
-	};
-itens.push(dadosItem);
+function criarItens(){
+	let	dadosItem = {
+			numero : 0,
+			nome : "?????",
+			descricao : "?????????"
+		};
+	itens.push(dadosItem);
 
-var	dadosItem = {
-		numero : 2,
-		nome : "Ataque",
-		descricao : "Aumenta o ataque por 1 minuto."
-	};
-itens.push(dadosItem);
+	dadosItem = {
+			numero : 1,
+			nome : "Poção",
+			descricao : "Recupera 30% da vida."
+		};
+	itens.push(dadosItem);
 
-var	dadosItem = {
-		numero : 3,
-		nome : "Defesa",
-		descricao : "Aumenta a defesa por 1 minuto."
-	};
-itens.push(dadosItem);
+	dadosItem = {
+			numero : 2,
+			nome : "Ataque",
+			descricao : "Aumenta o ataque por 1 minuto."
+		};
+	itens.push(dadosItem);
 
-var	dadosItem = {
-		numero : 4,
-		nome : "Experiência",
-		descricao : "Dobra a experiência ganha por 1 minuto."
-	};
-itens.push(dadosItem);
+	dadosItem = {
+			numero : 3,
+			nome : "Defesa",
+			descricao : "Aumenta a defesa por 1 minuto."
+		};
+	itens.push(dadosItem);
 
-var	dadosItem = {
-		numero : 5,
-		nome : "Ataque Mágico",
-		descricao : "Aumenta o ataque mágico por 1 minuto."
-	};
-itens.push(dadosItem);
+	dadosItem = {
+			numero : 4,
+			nome : "Experiência",
+			descricao : "Dobra a experiência ganha por 1 minuto."
+		};
+	itens.push(dadosItem);
 
-var	dadosItem = {
-		numero : 6,
-		nome : "Defesa Mágica",
-		descricao : "Aumenta a defesa mágica por 1 minuto."
-	};
-itens.push(dadosItem);
+	dadosItem = {
+			numero : 5,
+			nome : "Ataque Mágico",
+			descricao : "Aumenta o ataque mágico por 1 minuto."
+		};
+	itens.push(dadosItem);
+
+	dadosItem = {
+			numero : 6,
+			nome : "Defesa Mágica",
+			descricao : "Aumenta a defesa mágica por 1 minuto."
+		};
+	itens.push(dadosItem);
+}
 
 function desativarItem1(){
 	item1Ativo = false;
@@ -119,7 +123,7 @@ function usarItem1(){
 		if(!item1Ativo){
 			if (jogador.item1){
 				if(atualVida.innerText < jogador.vida){
-					var recuperarVida = Math.floor(jogador.vida / 100 * 30);
+					let recuperarVida = Math.floor(jogador.vida / 100 * 30);
 					if(parseInt(atualVida.innerText) + recuperarVida > jogador.vida){
 						atualVida.innerText = jogador.vida;
 					} else {

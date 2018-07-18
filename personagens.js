@@ -1,5 +1,5 @@
 "use strict";
-var imagem = "",
+let imagem = "",
 	animacao,
 	jogadorImagem = document.getElementById("jogadorImagem"),
 	inimigoImagem = document.getElementById("inimigoImagem"),
@@ -17,7 +17,7 @@ var imagem = "",
 	
 function escolherPersonagem(nomePersonagem){
 	if(nomePersonagem === "Guerreiro"){
-		var personagem = {
+		jogador = {
 		numero : 1,
 		nome : "Guerreiro",
 		vida : 10,
@@ -37,9 +37,8 @@ function escolherPersonagem(nomePersonagem){
 		item5: 5,
 		item6: 5
 		};
-		return personagem;
 	} else if(nomePersonagem === "Mago"){
-		var personagem = {
+		jogador = {
 		numero : 2,
 		nome : "Mago",
 		vida : 10,
@@ -59,7 +58,6 @@ function escolherPersonagem(nomePersonagem){
 		item5: 5,
 		item6: 5
 		};
-		return personagem;
 	}
 }
 	

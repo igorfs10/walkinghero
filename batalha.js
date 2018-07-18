@@ -1,9 +1,8 @@
 "use strict";
-var sorteio;
 function comecarBatalha(){
 	if(!batalhando){
 		if(txtMapa.innerText !== "Cidade"){
-			sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+			let sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
 			if(sorteio < 20){
 				batalhando = true;
 				escolherInimigo(txtMapa.innerText);
@@ -23,13 +22,13 @@ function batalha(){
 }
 
 function jogadorAtaca(){
-	var dano = jogador.ataque - inimigo.defesa;
+	let dano = jogador.ataque - inimigo.defesa;
 	if(dano < 1) {
 		dano = 1;
 	}
 	inimigo.vida = inimigo.vida - dano;
 	if(inimigo.vida < 1){
-		var experienciaGanha = 0;
+		let experienciaGanha = 0;
 		if(item4Ativo){
 			experienciaGanha = inimigo.experiencia * 2;
 		} else {
@@ -43,7 +42,7 @@ function jogadorAtaca(){
 }
 
 function inimigoAtaca(){
-	var dano = inimigo.ataque - jogador.defesa;
+	let dano = inimigo.ataque - jogador.defesa;
 	if(dano < 1) {
 		dano = 1;
 	}

@@ -1,34 +1,40 @@
 "use strict";
-var txtMapa = document.getElementById("txtMapa"),
+let txtMapa = document.getElementById("txtMapa"),
 	linhaCenario = document.getElementById("linhaCenario"),
 	setaEsquerda = document.getElementById("setaEsquerda"),
 	setaDireita = document.getElementById("setaDireita"),
+	primeiro,
+	ultimo,
+	atual,
 	mapas = [];
 
-var	mapaDados = {
-		numero : 0,
-		nome : "?????",
-		imagem: ""
-	};
-mapas.push(mapaDados);
+criarMapas();
+primeiro = 1;
+ultimo = mapas.length - 1;
+atual = 0;
+	
+function criarMapas(){
+	let	mapaDados = {
+			numero : 0,
+			nome : "?????",
+			imagem: ""
+		};
+	mapas.push(mapaDados);
 
-var	mapaDados = {
-		numero : 1,
-		nome : "Cidade",
-		imagem: "url(imagens/mapas/cidade.jpg)"
-	};
-mapas.push(mapaDados);
+		mapaDados = {
+			numero : 1,
+			nome : "Cidade",
+			imagem: "url(imagens/mapas/cidade.jpg)"
+		};
+	mapas.push(mapaDados);
 
-var	mapaDados = {
-		numero : 2,
-		nome : "Floresta",
-		imagem: "url(imagens/mapas/floresta.jpg)"
-	};
-mapas.push(mapaDados);
-
-var primeiro = 1,
-	ultimo = mapas.length - 1,
-	atual = 0;
+		mapaDados = {
+			numero : 2,
+			nome : "Floresta",
+			imagem: "url(imagens/mapas/floresta.jpg)"
+		};
+	mapas.push(mapaDados);
+}
 
 function mudarMapa(numero){
 	txtMapa.innerText = mapas[numero].nome;

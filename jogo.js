@@ -1,5 +1,5 @@
 "use strict";
-var tempo = 0,
+let tempo = 0,
 	jogando = false,
 	batalhando = false,
 	segundos = document.getElementById("txtSegundos"),
@@ -14,7 +14,7 @@ var tempo = 0,
 	jogo;
 	
 function converterTempo(){
-	var dia = Math.floor(tempo / (60 * 60 * 24)),
+	let dia = Math.floor(tempo / (60 * 60 * 24)),
 		hora = Math.floor((tempo % (60 * 60 * 24)) / (60 * 60)),
 		minuto = Math.floor((tempo % (60 * 60)) / 60),
 		segundo  = Math.floor((tempo % 60));
@@ -62,7 +62,7 @@ function novoJogo(){
 }
 
 function comecarJogo(nomePersonagem){
-	jogador = escolherPersonagem(nomePersonagem);
+	escolherPersonagem(nomePersonagem);
 	iniciarJogo();
 }
 
@@ -72,7 +72,7 @@ function salvarJogo(){
 		localStorage.setItem("tempoSalvo", tempo);
 		localStorage.setItem("jogador", JSON.stringify(jogador));
 	} else {
-		txtStatus.innerText = "Precisa estar jogando para salvar o jogo.";
+		txtStatus.innerText = "Precisa estar jogando para sallet o jogo.";
 	}
 }
 

@@ -1,5 +1,5 @@
 "use strict";
-var txtNivel = document.getElementById("txtNivel"),
+let txtNivel = document.getElementById("txtNivel"),
 	txtExperiencia = document.getElementById("txtExperiencia"),
 	txtExperienciaProximo = document.getElementById("txtExperienciaProximo"),
 	nivel = [
@@ -12,7 +12,7 @@ var txtNivel = document.getElementById("txtNivel"),
 	];
 
 function pegarNivel(){
-	var nivelJogador,
+	let nivelJogador,
 		experiencia = jogador.experiencia,
 		experienciaProximo;
 	for (nivelJogador = 0; experiencia >= nivel[nivelJogador]; nivelJogador++){
