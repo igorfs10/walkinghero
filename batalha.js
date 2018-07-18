@@ -15,11 +15,9 @@ function comecarBatalha(){
 function batalha(){
 	if(tempo%4 == 0){
 		jogadorAtaca();
-		atualizarJogo();
 	}
 	if(tempo%4 == 2){
 		inimigoAtaca();
-		atualizarJogo();
 	}
 }
 
@@ -39,6 +37,7 @@ function jogadorAtaca(){
 		jogador.experiencia = jogador.experiencia + experienciaGanha;
 		txtStatus.innerHTML = `${inimigo.nome} derrotado. Ganhou ${experienciaGanha} de experiência.`;
 		batalhando = false;
+		pegarNivel();
 	}
 }
 
@@ -48,4 +47,9 @@ function inimigoAtaca(){
 		dano = 1;
 	}
 	atualVida.innerHTML = parseInt(atualVida.innerHTML) - dano;
+	if(parseInt(atualVida.innerHTML) < 1){
+		pararJogo();
+		iniciarJogo();
+		txtStatus.innerHTML = `Você foi derrotado pelo ${inimigo.nome}.`;
+	}
 }

@@ -71,76 +71,44 @@ itens.push(dadosItem);
 
 function desativarItem1(){
 	item1Ativo = false;
-	if(jogando){
-		atualizarJogo();
-	}
+	item1.dataset.selecionado = "desativado";
 }
 
 function desativarItem2(){
 	item2Ativo = false;
+	item2.dataset.selecionado = "desativado";
 	if(jogando){
-		atualizarJogo();
+		atualizarAtaque();
 	}
 }
 
 function desativarItem3(){
 	item3Ativo = false;
+	item3.dataset.selecionado = "desativado";
 	if(jogando){
-		atualizarJogo();
+		atualizarDefesa();
 	}
 }
 
 function desativarItem4(){
 	item4Ativo = false;
-	if(jogando){
-		atualizarJogo();
-	}
+	item4.dataset.selecionado = "desativado";
+	txtExperiencia.style.color = "#aaaaaa";
 }
 
 function desativarItem5(){
 	item5Ativo = false;
+	item5.dataset.selecionado = "desativado";
 	if(jogando){
-		atualizarJogo();
+		atualizarAtaqueMagico();
 	}
 }
 
 function desativarItem6(){
 	item6Ativo = false;
+	item6.dataset.selecionado = "desativado";
 	if(jogando){
-		atualizarJogo();
-	}
-}
-
-function itensAtivados(){
-	if(item1Ativo){
-		item1.dataset.selecionado = "ativado";
-	} else {
-		item1.dataset.selecionado = "desativado";
-	}
-	if(item2Ativo){
-		item2.dataset.selecionado = "ativado";
-	} else {
-		item2.dataset.selecionado = "desativado";
-	}
-	if(item3Ativo){
-		item3.dataset.selecionado = "ativado";
-	} else {
-		item3.dataset.selecionado = "desativado";
-	}
-	if(item4Ativo){
-		item4.dataset.selecionado = "ativado";
-	} else {
-		item4.dataset.selecionado = "desativado";
-	}
-	if(item5Ativo){
-		item5.dataset.selecionado = "ativado";
-	} else {
-		item5.dataset.selecionado = "desativado";
-	}
-	if(item6Ativo){
-		item6.dataset.selecionado = "ativado";
-	} else {
-		item6.dataset.selecionado = "desativado";
+		atualizarDefesaMagica();
 	}
 }
 
@@ -157,8 +125,9 @@ function usarItem1(){
 					}
 					jogador.item1 = jogador.item1 - 1;
 					item1Ativo = true;
-					atualizarJogo();
-					setTimeout(desativarItem1, 7000);
+					quantidadeItem1.innerHTML = jogador.item1;
+					item1.dataset.selecionado = "ativado";
+					setTimeout(desativarItem1, 10000);
 				} else {
 					txtStatus.innerHTML = "A vida ja está no máximo.";
 				}
@@ -177,7 +146,9 @@ function usarItem2(){
 			if (jogador.item2){
 				jogador.item2 = jogador.item2 - 1;
 				item2Ativo = true;
-				atualizarJogo();
+				quantidadeItem2.innerHTML = jogador.item2;
+				item2.dataset.selecionado = "ativado";
+				atualizarAtaque();
 				setTimeout(desativarItem2, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";
@@ -194,7 +165,9 @@ function usarItem3(){
 			if (jogador.item3){
 				jogador.item3 = jogador.item3 - 1;
 				item3Ativo = true;
-				atualizarJogo();
+				quantidadeItem3.innerHTML = jogador.item3;
+				item3.dataset.selecionado = "ativado";
+				atualizarDefesa();
 				setTimeout(desativarItem3, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";
@@ -211,7 +184,9 @@ function usarItem4(){
 			if (jogador.item4){
 				jogador.item4 = jogador.item4 - 1;
 				item4Ativo = true;
-				atualizarJogo();
+				quantidadeItem4.innerHTML = jogador.item4;
+				item4.dataset.selecionado = "ativado";
+				txtExperiencia.style.color = "#ef5350";
 				setTimeout(desativarItem4, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";
@@ -228,7 +203,9 @@ function usarItem5(){
 			if (jogador.item5){
 				jogador.item5 = jogador.item5 - 1;
 				item5Ativo = true;
-				atualizarJogo();
+				quantidadeItem5.innerHTML = jogador.item5;
+				item5.dataset.selecionado = "ativado";
+				atualizarAtaqueMagico();
 				setTimeout(desativarItem5, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";
@@ -245,7 +222,9 @@ function usarItem6(){
 			if (jogador.item6){
 				jogador.item6 = jogador.item6 - 1;
 				item6Ativo = true;
-				atualizarJogo();
+				quantidadeItem6.innerHTML = jogador.item6;
+				item6.dataset.selecionado = "ativado";
+				atualizarDefesaMagica();
 				setTimeout(desativarItem6, 60000);
 			} else {
 				txtStatus.innerHTML = "Não tem esse item.";

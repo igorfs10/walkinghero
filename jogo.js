@@ -40,22 +40,14 @@ function converterTempo(){
 function execucaoJogo(){
 	tempo = tempo + 1;
 	converterTempo();
-	if(txtMapa.innerHTML === "Cidade" && atualVida.innerHTML > totalVida.innerHTML){
+	if(txtMapa.innerHTML === "Cidade" && parseInt(atualVida.innerHTML) < parseInt(totalVida.innerHTML)){
 		atualVida.innerHTML = parseInt(atualVida.innerHTML) + 1;
-		atualizarJogo();
 	}
 	comecarBatalha();
 	if(batalhando){
 		batalha();
 	}
 	jogo = setTimeout(execucaoJogo, 1000);
-}
-
-function atualizarJogo(){
-	colocarQuantidadeItens();
-	pegarNivel();
-	colocarStatusPersonagem();
-	itensAtivados();
 }
 
 function novoJogo(){
@@ -102,8 +94,11 @@ function iniciarJogo(){
 	inicialMapa();
 	aparecerSetas();
 	jogo = setTimeout(execucaoJogo, 1);
-	atualizarJogo();
+	txtNome.innerHTML = jogador.nome;
 	atualVida.innerHTML = jogador.vida;
+	colocarStatusPersonagem();
+	colocarQuantidadeItens();
+	pegarNivel();
 }
 
 function pararJogo(){

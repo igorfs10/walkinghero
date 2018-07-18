@@ -62,32 +62,51 @@ function escolherPersonagem(nomePersonagem){
 }
 	
 function colocarStatusPersonagem(){
+	totalVida.innerHTML = jogador.vida;
+	totalAtaque.innerHTML = jogador.ataque;
+	totalDefesa.innerHTML = jogador.defesa;
+	totalAtaqueMagico.innerHTML = jogador.ataqueMagico;
+	totalDefesaMagica.innerHTML = jogador.defesaMagica;
+}
+
+function atualizarAtaque(){
 	if(item2Ativo){
 		bonusAtaque.innerHTML =  Math.floor(jogador.ataque / 2);
+		totalAtaque.innerHTML = jogador.ataque + parseInt(bonusAtaque.innerHTML);
 	} else {
-		bonusAtaque.innerHTML = "0";
+		bonusAtaque.innerHTML = "";
+		totalAtaque.innerHTML = jogador.ataque;
 	}
+}
+
+function atualizarDefesa(){
 	if(item3Ativo){
 		bonusDefesa.innerHTML =  Math.floor(jogador.defesa / 2);
+		totalDefesa.innerHTML = jogador.defesa + parseInt(bonusDefesa.innerHTML);
 	} else {
-		bonusDefesa.innerHTML = "0";
+		bonusDefesa.innerHTML = "";
+		totalDefesa.innerHTML = jogador.defesa;
 	}
+}
+
+function atualizarAtaqueMagico(){
 	if(item5Ativo){
 		bonusAtaqueMagico.innerHTML =  Math.floor(jogador.ataqueMagico / 2);
+		totalAtaqueMagico.innerHTML = jogador.ataqueMagico + parseInt(bonusAtaqueMagico.innerHTML);
 	} else {
-		bonusAtaqueMagico.innerHTML = "0";
+		bonusAtaqueMagico.innerHTML = "";
+		totalAtaqueMagico.innerHTML = jogador.ataqueMagico;
 	}
+}
+
+function atualizarDefesaMagica(){
 	if(item6Ativo){
 		bonusDefesaMagica.innerHTML =  Math.floor(jogador.defesaMagica / 2);
+		totalDefesaMagica.innerHTML = jogador.defesaMagica + parseInt(bonusDefesaMagica.innerHTML);
 	} else {
-		bonusDefesaMagica.innerHTML = "0";
+		bonusDefesaMagica.innerHTML = "";
+		totalDefesaMagica.innerHTML = jogador.defesaMagica;
 	}
-	txtNome.innerHTML = jogador.nome;
-	totalVida.innerHTML = jogador.vida;
-	totalAtaque.innerHTML = jogador.ataque + parseInt(bonusAtaque.innerHTML);
-	totalDefesa.innerHTML = jogador.defesa + parseInt(bonusDefesa.innerHTML);
-	totalAtaqueMagico.innerHTML = jogador.ataqueMagico + parseInt(bonusAtaqueMagico.innerHTML);
-	totalDefesaMagica.innerHTML = jogador.defesaMagica + parseInt(bonusDefesaMagica.innerHTML);
 }
 
 function apagarStatusPersonagem(){

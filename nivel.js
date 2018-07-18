@@ -1,5 +1,6 @@
 var txtNivel = document.getElementById("txtNivel"),
 	txtExperiencia = document.getElementById("txtExperiencia"),
+	txtExperienciaProximo = document.getElementById("txtExperienciaProximo"),
 	nivel = [
 		-1,
 		10,
@@ -17,16 +18,13 @@ function pegarNivel(){
 	}
 	nivelJogador = i;
 	experienciaProximo = nivel[i];
-	txtNivel.innerHTML = `Nivel: ${nivelJogador}`;
-	txtExperiencia.innerHTML = `Experiência: ${experiencia}/${experienciaProximo}`;
-	if(item4Ativo){
-		txtExperiencia.style.color = "#ef5350";
-	} else {
-		txtExperiencia.style.color = "#aaaaaa";
-	}
+	txtNivel.innerHTML = nivelJogador;
+	txtExperiencia.innerHTML = experiencia;
+	txtExperienciaProximo.innerHTML = experienciaProximo;
 }
 
 function apagarNivel(){
-	txtNivel.innerHTML = "Nivel: ";
-	txtExperiencia.innerHTML = "/";
+	txtNivel.innerHTML = "";
+	txtExperiencia.innerHTML = "";
+	txtExperienciaProximo.innerHTML = "";
 }

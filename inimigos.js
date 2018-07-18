@@ -1,7 +1,7 @@
 function escolherInimigo(local){
 	if(local === "Floresta"){
 		sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
-		if(sorteio < 40){
+		if(sorteio < 60){
 			var inimigo = {
 				numero : 1,
 				nome : "Rato",
@@ -16,7 +16,7 @@ function escolherInimigo(local){
 				item: 1
 			};
 			return inimigo;
-		} else if(sorteio < 80){
+		} else if(sorteio < 90){
 			var inimigo = {
 				numero : 2,
 				nome : "Lobo",
