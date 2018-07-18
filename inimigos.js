@@ -1,7 +1,7 @@
 "use strict";
 function escolherInimigo(local){
 	if(local === "Floresta"){
-		let sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+		sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
 		if(sorteio < 60){
 			inimigo = {
 				numero : 1,

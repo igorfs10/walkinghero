@@ -11,13 +11,17 @@ let tempo = 0,
 	personagemInimigo = document.getElementById("personagemInimigo"),
 	jogador,
 	inimigo,
-	jogo;
+	jogo,
+	dia,
+	hora,
+	minuto,
+	segundo;
 	
 function converterTempo(){
-	let dia = Math.floor(tempo / (60 * 60 * 24)),
-		hora = Math.floor((tempo % (60 * 60 * 24)) / (60 * 60)),
-		minuto = Math.floor((tempo % (60 * 60)) / 60),
-		segundo  = Math.floor((tempo % 60));
+	dia = Math.floor(tempo / (60 * 60 * 24)),
+	hora = Math.floor((tempo % (60 * 60 * 24)) / (60 * 60)),
+	minuto = Math.floor((tempo % (60 * 60)) / 60),
+	segundo  = Math.floor((tempo % 60));
 	
 	if(segundo < 10){
 		segundos.innerText = "0" + segundo;

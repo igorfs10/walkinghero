@@ -123,7 +123,7 @@ function usarItem1(){
 		if(!item1Ativo){
 			if (jogador.item1){
 				if(atualVida.innerText < jogador.vida){
-					let recuperarVida = Math.floor(jogador.vida / 100 * 30);
+					const recuperarVida = Math.floor(jogador.vida / 100 * 30);
 					if(parseInt(atualVida.innerText) + recuperarVida > jogador.vida){
 						atualVida.innerText = jogador.vida;
 					} else {
