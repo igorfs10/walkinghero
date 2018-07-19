@@ -1,6 +1,7 @@
 "use strict";
-let itens = [],
-	quantidadeItem1 = document.getElementById("quantidadeItem1"),
+const itens = [];
+
+let quantidadeItem1 = document.getElementById("quantidadeItem1"),
 	quantidadeItem2 = document.getElementById("quantidadeItem2"),
 	quantidadeItem3 = document.getElementById("quantidadeItem3"),
 	quantidadeItem4 = document.getElementById("quantidadeItem4"),

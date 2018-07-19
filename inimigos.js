@@ -1,7 +1,7 @@
 "use strict";
 function escolherInimigo(local){
 	if(local === "Floresta"){
-		sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+		const sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
 		if(sorteio < 60){
 			inimigo = {
 				numero : 1,
@@ -19,7 +19,7 @@ function escolherInimigo(local){
 		} else if(sorteio < 90){
 			inimigo = {
 				numero : 2,
-				nome : "Lobo",
+				nome : "Coelho",
 				vida : 9,
 				ataque : 2,
 				defesa : 1,
@@ -33,7 +33,7 @@ function escolherInimigo(local){
 		} else {
 			inimigo = {
 				numero : 3,
-				nome : "Leão",
+				nome : "Lobo",
 				vida : 12,
 				ataque : 3,
 				defesa : 2,

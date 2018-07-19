@@ -5,8 +5,9 @@ let txtMapa = document.getElementById("txtMapa"),
 	setaDireita = document.getElementById("setaDireita"),
 	primeiro,
 	ultimo,
-	atual,
-	mapas = [];
+	atual;
+	
+const mapas = [];
 
 criarMapas();
 primeiro = 1;
