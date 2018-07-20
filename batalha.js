@@ -1,13 +1,11 @@
 "use strict";
 function comecarBatalha(){
-	if(!batalhando){
-		if(txtMapa.innerText !== "Cidade"){
-			const sorteio = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
-			if(sorteio < 20){
-				batalhando = true;
-				escolherInimigo(txtMapa.innerText);
-				txtStatus.innerText = `${inimigo.nome} apareceu.`;
-			}
+	if(!batalhando && txtMapa.innerText !== "Cidade"){
+		const sorteio = sortearNumero(1, 100);
+		if(sorteio <= 20){
+			batalhando = true;
+			escolherInimigo(txtMapa.innerText);
+			txtStatus.innerText = `${inimigo.nome} apareceu.`;
 		}
 	}
 }
@@ -24,8 +22,15 @@ function batalha(){
 function jogadorAtaca(){
 	let experienciaGanha,
 		dano = jogador.ataque - inimigo.defesa;
+		
+	const sorteio = sortearNumero(1, 100);
+	
 	if(dano < 1) {
 		dano = 1;
+	}
+	if (sorteio <= 30){
+		dano = dano * 2;
+		txtStatus.innerText = `${jogador.nome} deu um golpe crítico.`;
 	}
 	inimigo.vida = inimigo.vida - dano;
 	if(inimigo.vida < 1){
@@ -43,8 +48,15 @@ function jogadorAtaca(){
 
 function inimigoAtaca(){
 	let dano = inimigo.ataque - jogador.defesa;
+	
+	const sorteio = sortearNumero(1, 100);
+	
 	if(dano < 1) {
 		dano = 1;
+	}
+	if (sorteio <= 10){
+		dano = dano * 2;
+		txtStatus.innerText = `${inimigo.nome} deu um golpe crítico.`;
 	}
 	atualVida.innerText = parseInt(atualVida.innerText) - dano;
 	if(parseInt(atualVida.innerText) < 1){

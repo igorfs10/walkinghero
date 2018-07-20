@@ -51,6 +51,7 @@ function execucaoJogo(){
 	if(batalhando){
 		batalha();
 	}
+	acharItem();
 	jogo = setTimeout(execucaoJogo, 1000);
 }
 
@@ -117,4 +118,8 @@ function pararJogo(){
 	desativarItem4();
 	desativarItem5();
 	desativarItem6();
+}
+
+function sortearNumero(min, max){
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
