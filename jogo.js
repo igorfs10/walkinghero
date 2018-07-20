@@ -11,7 +11,7 @@ let tempo = 0,
 	personagemInimigo = document.getElementById("personagemInimigo"),
 	jogador,
 	inimigo,
-	jogo,
+	jogoTimeout,
 	dia,
 	hora,
 	minuto,
@@ -48,11 +48,11 @@ function execucaoJogo(){
 		atualVida.innerText = parseInt(atualVida.innerText) + 1;
 	}
 	comecarBatalha();
+	acharItem();
+	jogoTimeout = setTimeout(execucaoJogo, 1000);
 	if(batalhando){
 		batalha();
 	}
-	acharItem();
-	jogo = setTimeout(execucaoJogo, 1000);
 }
 
 function novoJogo(){
@@ -77,7 +77,7 @@ function salvarJogo(){
 		localStorage.setItem("tempoSalvo", tempo);
 		localStorage.setItem("jogador", JSON.stringify(jogador));
 	} else {
-		txtStatus.innerText = "Precisa estar jogando para sallet o jogo.";
+		txtStatus.innerText = "Precisa estar jogando para salvar o jogo.";
 	}
 }
 
@@ -98,20 +98,20 @@ function iniciarJogo(){
 	andando();
 	inicialMapa();
 	aparecerSetas();
-	jogo = setTimeout(execucaoJogo, 1);
 	txtNome.innerText = jogador.nome;
 	atualVida.innerText = jogador.vida;
 	colocarStatusPersonagem();
 	colocarQuantidadeItens();
 	pegarNivel();
+	jogoTimeout = setTimeout(execucaoJogo, 1);
 }
 
 function pararJogo(){
+	clearTimeout(jogoTimeout);
 	if(jogando){
 		pararAnimacao();
 	}
 	batalhando = false;
-	clearTimeout(jogo);
 	desativarItem1();
 	desativarItem2();
 	desativarItem3();

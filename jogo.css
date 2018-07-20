@@ -13,7 +13,7 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	user-select: none;
 }
 
-#jogo{
+#caixaJogo{
 	height: 600px;
 	width: 600px;
 	margin: auto;
