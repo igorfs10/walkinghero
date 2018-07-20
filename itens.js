@@ -269,7 +269,7 @@ function acharItem(){
 	if(!batalhando && txtMapa.innerText !== "Cidade"){
 		if(txtMapa.innerText === "Floresta"){
 			const sorteio = sortearNumero(1, 100);
-			if(sorteio <= 100){
+			if(sorteio <= 10){
 				const sorteioItem = sortearNumero(1, 6);
 				if(sorteioItem === 1){
 					jogador.item1 = jogador.item1 + 1;
@@ -294,4 +294,9 @@ function acharItem(){
 				} else {
 					jogador.item6 = jogador.item6 + 1;
 					quantidadeItem6.innerText = jogador.item6;
-					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[6].nome}.
+					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[6].nome}.`;
+				}
+			}
+		}
+	}
+}
