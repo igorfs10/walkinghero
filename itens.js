@@ -21,7 +21,13 @@ let quantidadeItem1 = document.getElementById("quantidadeItem1"),
 	item3Ativo = false,
 	item4Ativo = false,
 	item5Ativo = false,
-	item6Ativo = false;
+	item6Ativo = false,
+	timerItem1,
+	timerItem2,
+	timerItem3,
+	timerItem4,
+	timerItem5,
+	timerItem6;
 	
 criarItens();
 
@@ -79,6 +85,7 @@ function criarItens(){
 function desativarItem1(){
 	item1Ativo = false;
 	item1.dataset.selecionado = "desativado";
+	timerItem1 = clearInterval(timerItem1);
 }
 
 function desativarItem2(){
@@ -87,6 +94,7 @@ function desativarItem2(){
 	if(jogando){
 		atualizarAtaque();
 	}
+	timerItem2 = clearInterval(timerItem2);
 }
 
 function desativarItem3(){
@@ -95,12 +103,14 @@ function desativarItem3(){
 	if(jogando){
 		atualizarDefesa();
 	}
+	timerItem3 = clearInterval(timerItem3);
 }
 
 function desativarItem4(){
 	item4Ativo = false;
 	item4.dataset.selecionado = "desativado";
 	pExperiencia.style.color = "#aaaaaa";
+	timerItem4 = clearInterval(timerItem4);
 }
 
 function desativarItem5(){
@@ -109,6 +119,7 @@ function desativarItem5(){
 	if(jogando){
 		atualizarAtaqueMagico();
 	}
+	timerItem5 = clearInterval(timerItem5);
 }
 
 function desativarItem6(){
@@ -117,6 +128,7 @@ function desativarItem6(){
 	if(jogando){
 		atualizarDefesaMagica();
 	}
+	timerItem6 = clearInterval(timerItem6);
 }
 
 function usarItem1(){
@@ -134,7 +146,7 @@ function usarItem1(){
 					item1Ativo = true;
 					quantidadeItem1.innerText = jogador.item1;
 					item1.dataset.selecionado = "ativado";
-					setTimeout(desativarItem1, 10000);
+					timerItem1 = setInterval(desativarItem1, 10000);
 				} else {
 					txtStatus.innerText = "A vida ja está no máximo.";
 				}
@@ -156,7 +168,7 @@ function usarItem2(){
 				quantidadeItem2.innerText = jogador.item2;
 				item2.dataset.selecionado = "ativado";
 				atualizarAtaque();
-				setTimeout(desativarItem2, 60000);
+				timerItem2 = setInterval(desativarItem2, 60000);
 			} else {
 				txtStatus.innerText = "Não tem esse item.";
 			}
@@ -175,7 +187,7 @@ function usarItem3(){
 				quantidadeItem3.innerText = jogador.item3;
 				item3.dataset.selecionado = "ativado";
 				atualizarDefesa();
-				setTimeout(desativarItem3, 60000);
+				timerItem3 = setInterval(desativarItem3, 60000);
 			} else {
 				txtStatus.innerText = "Não tem esse item.";
 			}
@@ -194,7 +206,7 @@ function usarItem4(){
 				quantidadeItem4.innerText = jogador.item4;
 				item4.dataset.selecionado = "ativado";
 				pExperiencia.style.color = "#ef5350";
-				setTimeout(desativarItem4, 60000);
+				timerItem4 = setInterval(desativarItem4, 60000);
 			} else {
 				txtStatus.innerText = "Não tem esse item.";
 			}
@@ -213,7 +225,7 @@ function usarItem5(){
 				quantidadeItem5.innerText = jogador.item5;
 				item5.dataset.selecionado = "ativado";
 				atualizarAtaqueMagico();
-				setTimeout(desativarItem5, 60000);
+				timerItem5 = setInterval(desativarItem5, 60000);
 			} else {
 				txtStatus.innerText = "Não tem esse item.";
 			}
@@ -232,7 +244,7 @@ function usarItem6(){
 				quantidadeItem6.innerText = jogador.item6;
 				item6.dataset.selecionado = "ativado";
 				atualizarDefesaMagica();
-				setTimeout(desativarItem6, 60000);
+				timerItem6 = setInterval(desativarItem6, 60000);
 			} else {
 				txtStatus.innerText = "Não tem esse item.";
 			}

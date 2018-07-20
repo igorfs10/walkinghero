@@ -132,11 +132,13 @@ function andando(){
 		imagem = jogador.imagemParado;
 		jogadorImagem.src = imagem;
 	}
-	animacao = setTimeout(andando,500);
+	if(!animacao){
+		animacao = setInterval(andando, 500);
+	}
 }
 
 function pararAnimacao(){
-	clearTimeout(animacao);
+	animacao = clearInterval(animacao);
 	jogadorImagem.src = "";
 }
 

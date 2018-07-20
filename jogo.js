@@ -11,7 +11,7 @@ let tempo = 0,
 	personagemInimigo = document.getElementById("personagemInimigo"),
 	jogador,
 	inimigo,
-	jogoTimeout,
+	atualizacaoJogo,
 	dia,
 	hora,
 	minuto,
@@ -49,7 +49,6 @@ function execucaoJogo(){
 	}
 	comecarBatalha();
 	acharItem();
-	jogoTimeout = setTimeout(execucaoJogo, 1000);
 	if(batalhando){
 		batalha();
 	}
@@ -93,6 +92,7 @@ function carregarJogo(){
 }
 
 function iniciarJogo(){
+	converterTempo();
 	personagemEscolhido();
 	jogando = true;
 	andando();
@@ -103,11 +103,11 @@ function iniciarJogo(){
 	colocarStatusPersonagem();
 	colocarQuantidadeItens();
 	pegarNivel();
-	jogoTimeout = setTimeout(execucaoJogo, 1);
+	atualizacaoJogo = setInterval(execucaoJogo, 1000);
 }
 
 function pararJogo(){
-	clearTimeout(jogoTimeout);
+	atualizacaoJogo = clearInterval(atualizacaoJogo);
 	if(jogando){
 		pararAnimacao();
 	}
