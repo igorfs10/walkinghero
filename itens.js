@@ -270,33 +270,28 @@ function acharItem(){
 		if(txtMapa.innerText === "Floresta"){
 			const sorteio = sortearNumero(1, 100);
 			if(sorteio <= 100){
-				const sorteio2 = sortearNumero(1, 6);
-				if(sorteio2 === 1){
+				const sorteioItem = sortearNumero(1, 6);
+				if(sorteioItem === 1){
 					jogador.item1 = jogador.item1 + 1;
 					quantidadeItem1.innerText = jogador.item1;
 					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[1].nome}.`;
-				} else if(sorteio === 2){
+				} else if(sorteioItem === 2){
 					jogador.item2 = jogador.item2 + 1;
 					quantidadeItem2.innerText = jogador.item2;
 					txtStatus.innerText = `${jogador.nome} encontrou 2 ${itens[2].nome}.`;
-				} else if(sorteio === 3){
+				} else if(sorteioItem === 3){
 					jogador.item3 = jogador.item3 + 1;
 					quantidadeItem3.innerText = jogador.item3;
 					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[3].nome}.`;
-				} else if(sorteio === 4){
+				} else if(sorteioItem === 4){
 					jogador.item4 = jogador.item4 + 1;
 					quantidadeItem4.innerText = jogador.item4;
 					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[4].nome}.`;
-				} else if(sorteio === 5){
+				} else if(sorteioItem === 5){
 					jogador.item5 = jogador.item5 + 1;
 					quantidadeItem5.innerText = jogador.item5;
 					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[5].nome}.`;
 				} else {
 					jogador.item6 = jogador.item6 + 1;
 					quantidadeItem6.innerText = jogador.item6;
-					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[6].nome}.`;
-				}
-			}
-		}
-	}
-}
+					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[6].nome}.
