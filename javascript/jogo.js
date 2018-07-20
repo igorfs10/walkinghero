@@ -82,7 +82,7 @@ function salvarJogo(){
 
 function carregarJogo(){
 	if (isNaN(parseInt(localStorage.getItem("tempoSalvo")))){
-		txtStatus.innerText = "Não existe jogo salvo";
+		txtStatus.innerText = "Não existe jogo salvo.";
 	} else {
 		pararJogo();
 		tempo = parseInt(localStorage.getItem("tempoSalvo"));
