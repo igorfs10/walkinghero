@@ -278,7 +278,7 @@ function acharItem(){
 				} else if(sorteioItem === 2){
 					jogador.item2 = jogador.item2 + 1;
 					quantidadeItem2.innerText = jogador.item2;
-					txtStatus.innerText = `${jogador.nome} encontrou 2 ${itens[2].nome}.`;
+					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[2].nome}.`;
 				} else if(sorteioItem === 3){
 					jogador.item3 = jogador.item3 + 1;
 					quantidadeItem3.innerText = jogador.item3;
