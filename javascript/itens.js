@@ -35,49 +35,56 @@ function criarItens(){
 	let	dadosItem = {
 			numero : 0,
 			nome : "?????",
-			descricao : "?????????"
+			descricao : "?????????",
+			efeito: 0
 		};
 	itens.push(dadosItem);
 
 	dadosItem = {
 			numero : 1,
 			nome : "Poção",
-			descricao : "Recupera 30% da vida."
+			descricao : "Recupera 30% da vida.",
+			efeito: usarItem1
 		};
 	itens.push(dadosItem);
 
 	dadosItem = {
 			numero : 2,
 			nome : "Ataque",
-			descricao : "Aumenta o ataque por 1 minuto."
+			descricao : "Aumenta o ataque por 1 minuto.",
+			efeito: usarItem2
 		};
 	itens.push(dadosItem);
 
 	dadosItem = {
 			numero : 3,
 			nome : "Defesa",
-			descricao : "Aumenta a defesa por 1 minuto."
+			descricao : "Aumenta a defesa por 1 minuto.",
+			efeito: usarItem3
 		};
 	itens.push(dadosItem);
 
 	dadosItem = {
 			numero : 4,
 			nome : "Experiência",
-			descricao : "Dobra a experiência ganha por 1 minuto."
+			descricao : "Dobra a experiência ganha por 1 minuto.",
+			efeito: usarItem4
 		};
 	itens.push(dadosItem);
 
 	dadosItem = {
 			numero : 5,
 			nome : "Ataque Mágico",
-			descricao : "Aumenta o ataque mágico por 1 minuto."
+			descricao : "Aumenta o ataque mágico por 1 minuto.",
+			efeito: usarItem5
 		};
 	itens.push(dadosItem);
 
 	dadosItem = {
 			numero : 6,
 			nome : "Defesa Mágica",
-			descricao : "Aumenta a defesa mágica por 1 minuto."
+			descricao : "Aumenta a defesa mágica por 1 minuto.",
+			efeito: usarItem6
 		};
 	itens.push(dadosItem);
 }
