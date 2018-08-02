@@ -3,58 +3,27 @@ let txtMapa = document.getElementById("txtMapa"),
 	linhaCenario = document.getElementById("linhaCenario"),
 	setaEsquerda = document.getElementById("setaEsquerda"),
 	setaDireita = document.getElementById("setaDireita"),
-	primeiro,
-	ultimo,
-	atual;
-	
-const mapas = [];
+	mapaAtual;
 
-criarMapas();
-primeiro = 1;
-ultimo = mapas.length - 1;
-atual = 0;
-	
-function criarMapas(){
-	let	mapaDados = {
-			numero : 0,
-			nome : "?????",
-			imagem: ""
-		};
-	mapas.push(mapaDados);
-
-		mapaDados = {
-			numero : 1,
-			nome : "Cidade",
-			imagem: "url(imagens/mapas/cidade.jpg)"
-		};
-	mapas.push(mapaDados);
-
-		mapaDados = {
-			numero : 2,
-			nome : "Floresta",
-			imagem: "url(imagens/mapas/floresta.jpg)"
-		};
-	mapas.push(mapaDados);
+function mudarMapa(numeroMapa){
+	txtMapa.innerText = MAPAS[numeroMapa].nome;
+	txtMapa.dataset.numero = numeroMapa;
+	linhaCenario.style.backgroundImage = MAPAS[numeroMapa].imagem;
 }
 
-function mudarMapa(numero){
-	txtMapa.innerText = mapas[numero].nome;
-	linhaCenario.style.backgroundImage = mapas[numero].imagem;
-}
-
-function inicialMapa(){
-	mudarMapa(1);
+function mapaInicial(){
+	mudarMapa(MAPA_CIDADE);
 }
 
 function proximoMapa(){
 	if(jogando && !batalhando){
-		for(atual = 0; mapas[atual].nome !== txtMapa.innerText; atual++){}
-		if(atual === ultimo){
-			txtStatus.innerText = "Esse é o ultimo local.";
+		for(mapaAtual = 0; MAPAS[mapaAtual].nome !== txtMapa.innerText; mapaAtual++){}
+		if(mapaAtual === ULTIMOMAPA){
+			txtStatus.innerText = "Esse é o ULTIMOMAPA local.";
 		} else {
-			mudarMapa(atual + 1);
+			mudarMapa(mapaAtual + 1);
 			setaEsquerda.style.display = "block";
-			if(atual + 1 === ultimo){
+			if(mapaAtual + 1 === ULTIMOMAPA){
 				setaDireita.style.display = "none";
 			}
 		}
@@ -65,13 +34,13 @@ function proximoMapa(){
 
 function anteriorMapa(){
 	if(jogando && !batalhando){
-		for(atual = 0; mapas[atual].nome !== txtMapa.innerText; atual++){}
-		if(atual === primeiro){
-			txtStatus.innerText = "Esse é o primeiro local.";
+		for(mapaAtual = 0; MAPAS[mapaAtual].nome !== txtMapa.innerText; mapaAtual++){}
+		if(mapaAtual === PRIMEIROMAPA){
+			txtStatus.innerText = "Esse é o PRIMEIROMAPA local.";
 		} else {
-			mudarMapa(atual - 1);
+			mudarMapa(mapaAtual - 1);
 			setaDireita.style.display = "block";
-			if(atual - 1 === primeiro){
+			if(mapaAtual - 1 === PRIMEIROMAPA){
 				setaEsquerda.style.display = "none";
 			}
 		}

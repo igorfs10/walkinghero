@@ -1,25 +1,15 @@
 "use strict";
 let txtNivel = document.getElementById("txtNivel"),
 	txtExperiencia = document.getElementById("txtExperiencia"),
-	txtExperienciaProximo = document.getElementById("txtExperienciaProximo");
-
-const nivel = [
-		-1,
-		10,
-		100,
-		1000,
-		10000,
-		100000
-	];
+	txtExperienciaProximo = document.getElementById("txtExperienciaProximo"),
+	nivelJogador,
+	experiencia,
+	experienciaProximo;
 
 function pegarNivel(){
-	let nivelJogador,
-		experiencia = jogador.experiencia,
-		experienciaProximo;
-		
-	for (nivelJogador = 0; experiencia >= nivel[nivelJogador]; nivelJogador++){
-	}
-	experienciaProximo = nivel[nivelJogador];
+	experiencia = jogador.experiencia;
+	for (nivelJogador = 0; experiencia >= NIVEIS[nivelJogador]; nivelJogador++){}
+	experienciaProximo = NIVEIS[nivelJogador];
 	txtNivel.innerText = nivelJogador;
 	txtExperiencia.innerText = experiencia;
 	txtExperienciaProximo.innerText = experienciaProximo;

@@ -9,6 +9,7 @@ let tempo = 0,
 	txtStatus = document.getElementById("txtStatus"),
 	personagemJogador = document.getElementById("personagemJogador"),
 	personagemInimigo = document.getElementById("personagemInimigo"),
+	sorteio,
 	jogador,
 	inimigo,
 	atualizacaoJogo,
@@ -96,7 +97,7 @@ function iniciarJogo(){
 	personagemEscolhido();
 	jogando = true;
 	andando();
-	inicialMapa();
+	mapaInicial();
 	aparecerSetas();
 	txtNome.innerText = jogador.nome;
 	atualVida.innerText = jogador.vida;
@@ -112,12 +113,12 @@ function pararJogo(){
 		pararAnimacao();
 	}
 	batalhando = false;
+	desativarItem0();
 	desativarItem1();
 	desativarItem2();
 	desativarItem3();
 	desativarItem4();
 	desativarItem5();
-	desativarItem6();
 }
 
 function sortearNumero(min, max){

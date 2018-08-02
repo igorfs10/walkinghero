@@ -30,12 +30,7 @@ function escolherPersonagem(nomePersonagem){
 		imagemAtacando: "",
 		imagemCurando: "",
 		experiencia: 0,
-		item1: 5,
-		item2: 5,
-		item3: 5,
-		item4: 5,
-		item5: 5,
-		item6: 5
+		item: [5,5,5,5,5,5]
 		};
 	} else if(nomePersonagem === "Mago"){
 		jogador = {
@@ -51,12 +46,7 @@ function escolherPersonagem(nomePersonagem){
 		imagemAtacando: "",
 		imagemCurando: "",
 		experiencia: 0,
-		item1: 5,
-		item2: 5,
-		item3: 5,
-		item4: 5,
-		item5: 5,
-		item6: 5
+		item: [5,5,5,5,5,5]
 		};
 	}
 }
@@ -70,7 +60,7 @@ function colocarStatusPersonagem(){
 }
 
 function atualizarAtaque(){
-	if(item2Ativo){
+	if(itemAtivo[1]){
 		bonusAtaque.innerText =  Math.floor(jogador.ataque / 2);
 		totalAtaque.innerText = jogador.ataque + parseInt(bonusAtaque.innerText);
 	} else {
@@ -80,7 +70,7 @@ function atualizarAtaque(){
 }
 
 function atualizarDefesa(){
-	if(item3Ativo){
+	if(itemAtivo[2]){
 		bonusDefesa.innerText =  Math.floor(jogador.defesa / 2);
 		totalDefesa.innerText = jogador.defesa + parseInt(bonusDefesa.innerText);
 	} else {
@@ -90,7 +80,7 @@ function atualizarDefesa(){
 }
 
 function atualizarAtaqueMagico(){
-	if(item5Ativo){
+	if(itemAtivo[4]){
 		bonusAtaqueMagico.innerText =  Math.floor(jogador.ataqueMagico / 2);
 		totalAtaqueMagico.innerText = jogador.ataqueMagico + parseInt(bonusAtaqueMagico.innerText);
 	} else {
@@ -100,7 +90,7 @@ function atualizarAtaqueMagico(){
 }
 
 function atualizarDefesaMagica(){
-	if(item6Ativo){
+	if(itemAtivo[5]){
 		bonusDefesaMagica.innerText =  Math.floor(jogador.defesaMagica / 2);
 		totalDefesaMagica.innerText = jogador.defesaMagica + parseInt(bonusDefesaMagica.innerText);
 	} else {

@@ -1,10 +1,13 @@
 "use strict";
+let experienciaGanha,
+	dano;
+	
 function comecarBatalha(){
-	if(!batalhando && txtMapa.innerText !== "Cidade"){
-		const sorteio = sortearNumero(1, 100);
+	if(!batalhando && parseInt(txtMapa.dataset.numero) !== MAPA_CIDADE){
+		sorteio = sortearNumero(1, 100);
 		if(sorteio <= 20){
 			batalhando = true;
-			escolherInimigo(txtMapa.innerText);
+			escolherInimigo(txtMapa.dataset.numero);
 			txtStatus.innerText = `${inimigo.nome} apareceu.`;
 		}
 	}
@@ -20,10 +23,8 @@ function batalha(){
 }
 
 function jogadorAtaca(){
-	let experienciaGanha,
-		dano = jogador.ataque - inimigo.defesa;
-		
-	const sorteio = sortearNumero(1, 100);
+	dano = jogador.ataque - inimigo.defesa;
+	sorteio = sortearNumero(1, 100);
 	
 	if(dano < 1) {
 		dano = 1;
@@ -34,22 +35,27 @@ function jogadorAtaca(){
 	}
 	inimigo.vida = inimigo.vida - dano;
 	if(inimigo.vida < 1){
-		if(item4Ativo){
+		if(itemAtivo[3]){
 			experienciaGanha = inimigo.experiencia * 2;
 		} else {
 			experienciaGanha = inimigo.experiencia;
 		}
 		jogador.experiencia = jogador.experiencia + experienciaGanha;
-		txtStatus.innerText = `${inimigo.nome} derrotado. Ganhou ${experienciaGanha} de experiência.`;
+		sorteio = sortearNumero(1, 100);
+		if(sorteio <= 10){
+			ganharItem(inimigo.item);
+			txtStatus.innerText = `Derrotou ${inimigo.nome}. Ganhou ${ITENS[inimigo.item].nome} e ${experienciaGanha} de experiência.`;
+		}else{
+			txtStatus.innerText = `Derrotou ${inimigo.nome}. Ganhou ${experienciaGanha} de experiência.`;
+		}
 		batalhando = false;
 		pegarNivel();
 	}
 }
 
 function inimigoAtaca(){
-	let dano = inimigo.ataque - jogador.defesa;
-	
-	const sorteio = sortearNumero(1, 100);
+	dano = inimigo.ataque - jogador.defesa;
+	sorteio = sortearNumero(1, 100);
 	
 	if(dano < 1) {
 		dano = 1;

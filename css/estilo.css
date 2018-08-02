@@ -139,7 +139,7 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 }
 
 #txtStatus{
-	font-size: 30px;
+	font-size: 25px;
 	color: #ffffff;
 	text-align: center;
 	line-height: 50px;
@@ -203,7 +203,7 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	float: left;
 }
 
-#item1, #item2, #item3, #item4, #item5, #item6{
+#item0, #item1, #item2, #item3, #item4, #item5{
 	height: 48px;
 	width: 48px;
 	float: left;
@@ -214,11 +214,11 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	border-image-slice: 9;
 }
 
-#item1[data-selecionado="ativado"], #item2[data-selecionado="ativado"], #item3[data-selecionado="ativado"], #item4[data-selecionado="ativado"], #item5[data-selecionado="ativado"], #item6[data-selecionado="ativado"]{
+#item0[data-selecionado="ativado"], #item1[data-selecionado="ativado"], #item2[data-selecionado="ativado"], #item3[data-selecionado="ativado"], #item4[data-selecionado="ativado"], #item5[data-selecionado="ativado"]{
 	background-color:#e65100;
 }
 
-#quantidadeItem1, #quantidadeItem2, #quantidadeItem3, #quantidadeItem4, #quantidadeItem5, #quantidadeItem6, #descricaoItem1, #descricaoItem2, #descricaoItem3, #descricaoItem4, #descricaoItem5, #descricaoItem6{
+#quantidadeItem0, #quantidadeItem1, #quantidadeItem2, #quantidadeItem3, #quantidadeItem4, #quantidadeItem5, #descricaoItem0, #descricaoItem1, #descricaoItem2, #descricaoItem3, #descricaoItem4, #descricaoItem5{
 	height: 19px;
 	width: 19px;
 	position: absolute;
@@ -232,11 +232,11 @@ p, ul, li, ol, h1, h2, h3, h4, h5, h6{
 	color: #000000;
 }
 
-#quantidadeItem1, #quantidadeItem2, #quantidadeItem3, #quantidadeItem4, #quantidadeItem5, #quantidadeItem6{
+#quantidadeItem0, #quantidadeItem1, #quantidadeItem2, #quantidadeItem3, #quantidadeItem4, #quantidadeItem5{
 	left: 0px;
 }
 
-#descricaoItem1, #descricaoItem2, #descricaoItem3, #descricaoItem4, #descricaoItem5, #descricaoItem6{
+#descricaoItem0, #descricaoItem1, #descricaoItem2, #descricaoItem3, #descricaoItem4, #descricaoItem5{
 	right: 0px;
 }
 

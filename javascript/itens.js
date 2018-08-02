@@ -1,159 +1,90 @@
 "use strict";
-const itens = [];
-
-let quantidadeItem1 = document.getElementById("quantidadeItem1"),
-	quantidadeItem2 = document.getElementById("quantidadeItem2"),
-	quantidadeItem3 = document.getElementById("quantidadeItem3"),
-	quantidadeItem4 = document.getElementById("quantidadeItem4"),
-	quantidadeItem5 = document.getElementById("quantidadeItem5"),
-	quantidadeItem6 = document.getElementById("quantidadeItem6"),
-	item1 = document.getElementById("item1"),
-	item2 = document.getElementById("item2"),
-	item3 = document.getElementById("item3"),
-	item4 = document.getElementById("item4"),
-	item5 = document.getElementById("item5"),
-	item6 = document.getElementById("item6"),
+let quantidadeItem = [
+	document.getElementById("quantidadeItem0"),
+	document.getElementById("quantidadeItem1"),
+	document.getElementById("quantidadeItem2"),
+	document.getElementById("quantidadeItem3"),
+	document.getElementById("quantidadeItem4"),
+	document.getElementById("quantidadeItem5")
+	],
+	itemFundo = [
+		document.getElementById("item0"),
+		document.getElementById("item1"),
+		document.getElementById("item2"),
+		document.getElementById("item3"),
+		document.getElementById("item4"),
+		document.getElementById("item5"),
+	],
+	desativarItem = [
+		desativarItem0,
+		desativarItem1,
+		desativarItem2,
+		desativarItem3,
+		desativarItem4,
+		desativarItem5],
+	itemAtivo = [false, false, false, false, false, false],
+	timerItem = [0,0,0,0,0,0],
 	nomeItem = document.getElementById("nomeItem"),
 	descricaoItem = document.getElementById("descricaoItem"),
 	pExperiencia = document.getElementById("pExperiencia"),
-	item1Ativo = false,
-	item2Ativo = false,
-	item3Ativo = false,
-	item4Ativo = false,
-	item5Ativo = false,
-	item6Ativo = false,
-	timerItem1,
-	timerItem2,
-	timerItem3,
-	timerItem4,
-	timerItem5,
-	timerItem6;
-	
-criarItens();
+	sorteioItem,
+	recuperarVida;
 
-function criarItens(){
-	let	dadosItem = {
-			numero : 0,
-			nome : "?????",
-			descricao : "?????????",
-			efeito: 0
-		};
-	itens.push(dadosItem);
-
-	dadosItem = {
-			numero : 1,
-			nome : "Poção",
-			descricao : "Recupera 30% da vida.",
-			efeito: usarItem1
-		};
-	itens.push(dadosItem);
-
-	dadosItem = {
-			numero : 2,
-			nome : "Ataque",
-			descricao : "Aumenta o ataque por 1 minuto.",
-			efeito: usarItem2
-		};
-	itens.push(dadosItem);
-
-	dadosItem = {
-			numero : 3,
-			nome : "Defesa",
-			descricao : "Aumenta a defesa por 1 minuto.",
-			efeito: usarItem3
-		};
-	itens.push(dadosItem);
-
-	dadosItem = {
-			numero : 4,
-			nome : "Experiência",
-			descricao : "Dobra a experiência ganha por 1 minuto.",
-			efeito: usarItem4
-		};
-	itens.push(dadosItem);
-
-	dadosItem = {
-			numero : 5,
-			nome : "Ataque Mágico",
-			descricao : "Aumenta o ataque mágico por 1 minuto.",
-			efeito: usarItem5
-		};
-	itens.push(dadosItem);
-
-	dadosItem = {
-			numero : 6,
-			nome : "Defesa Mágica",
-			descricao : "Aumenta a defesa mágica por 1 minuto.",
-			efeito: usarItem6
-		};
-	itens.push(dadosItem);
+//Desativa os efeitos e atualiza os status
+function desativarItem0(){
+	desativacaodoItem(ITEM_POCAO);
 }
 
 function desativarItem1(){
-	item1Ativo = false;
-	item1.dataset.selecionado = "desativado";
-	timerItem1 = clearInterval(timerItem1);
-}
-
-function desativarItem2(){
-	item2Ativo = false;
-	item2.dataset.selecionado = "desativado";
+	desativacaodoItem(ITEM_ATAQUE);
 	if(jogando){
 		atualizarAtaque();
 	}
-	timerItem2 = clearInterval(timerItem2);
 }
 
-function desativarItem3(){
-	item3Ativo = false;
-	item3.dataset.selecionado = "desativado";
+function desativarItem2(){
+	desativacaodoItem(ITEM_DEFESA);
 	if(jogando){
 		atualizarDefesa();
 	}
-	timerItem3 = clearInterval(timerItem3);
+}
+
+function desativarItem3(){
+	desativacaodoItem(ITEM_EXPERIENCIA);
+	pExperiencia.style.color = "#aaaaaa";
 }
 
 function desativarItem4(){
-	item4Ativo = false;
-	item4.dataset.selecionado = "desativado";
-	pExperiencia.style.color = "#aaaaaa";
-	timerItem4 = clearInterval(timerItem4);
-}
-
-function desativarItem5(){
-	item5Ativo = false;
-	item5.dataset.selecionado = "desativado";
+	desativacaodoItem(ITEM_ATAQUEMAGICO);
 	if(jogando){
 		atualizarAtaqueMagico();
 	}
-	timerItem5 = clearInterval(timerItem5);
 }
 
-function desativarItem6(){
-	item6Ativo = false;
-	item6.dataset.selecionado = "desativado";
+function desativarItem5(){
+	desativacaodoItem(ITEM_DEFESAMAGICA);
 	if(jogando){
 		atualizarDefesaMagica();
 	}
-	timerItem6 = clearInterval(timerItem6);
 }
 
-function usarItem1(){
+//Ativa os itens e atualiza os status
+function usarItem0(){
 	if(jogando){
-		if(!item1Ativo){
-			if (jogador.item1){
+		//Verifica se não estava ativo
+		if(!itemAtivo[ITEM_POCAO]){
+			//Verifica se o Jogador possui o item
+			if (jogador.item[ITEM_POCAO]){
+				//Só cura se a vida atual for menor que o total
 				if(atualVida.innerText < jogador.vida){
-					const recuperarVida = Math.floor(jogador.vida / 100 * 30);
+					recuperarVida = Math.floor(jogador.vida / 100 * 30);
+					//Cura para o total se a quantidade da cura deixar maior que o total
 					if(parseInt(atualVida.innerText) + recuperarVida > jogador.vida){
 						atualVida.innerText = jogador.vida;
 					} else {
 						atualVida.innerText = parseInt(atualVida.innerText) + recuperarVida;
 					}
-					jogador.item1 = jogador.item1 - 1;
-					item1Ativo = true;
-					quantidadeItem1.innerText = jogador.item1;
-					item1.dataset.selecionado = "ativado";
-					timerItem1 = setInterval(desativarItem1, 10000);
+					usarAtivarItem(ITEM_POCAO, 10000);
 				} else {
 					txtStatus.innerText = "A vida ja está no máximo.";
 				}
@@ -166,16 +97,27 @@ function usarItem1(){
 	}
 }
 
+function usarItem1(){
+	if(jogando){
+		if(!itemAtivo[ITEM_ATAQUE]){
+			if (jogador.item[ITEM_ATAQUE]){
+				usarAtivarItem(ITEM_ATAQUE, 60000);
+				atualizarAtaque();
+			} else {
+				txtStatus.innerText = "Não tem esse item.";
+			}
+		} else {
+			txtStatus.innerText = "O item ja está em uso.";
+		}
+	}
+}
+
 function usarItem2(){
 	if(jogando){
-		if(!item2Ativo){
-			if (jogador.item2){
-				jogador.item2 = jogador.item2 - 1;
-				item2Ativo = true;
-				quantidadeItem2.innerText = jogador.item2;
-				item2.dataset.selecionado = "ativado";
-				atualizarAtaque();
-				timerItem2 = setInterval(desativarItem2, 60000);
+		if(!itemAtivo[ITEM_DEFESA]){
+			if (jogador.item[ITEM_DEFESA]){
+				usarAtivarItem(2, 60000);
+				atualizarDefesa();
 			} else {
 				txtStatus.innerText = "Não tem esse item.";
 			}
@@ -187,14 +129,10 @@ function usarItem2(){
 
 function usarItem3(){
 	if(jogando){
-		if(!item3Ativo){
-			if (jogador.item3){
-				jogador.item3 = jogador.item3 - 1;
-				item3Ativo = true;
-				quantidadeItem3.innerText = jogador.item3;
-				item3.dataset.selecionado = "ativado";
-				atualizarDefesa();
-				timerItem3 = setInterval(desativarItem3, 60000);
+		if(!itemAtivo[ITEM_EXPERIENCIA]){
+			if (jogador.item[ITEM_EXPERIENCIA]){
+				usarAtivarItem(3, 60000);
+				pExperiencia.style.color = "#ef5350";
 			} else {
 				txtStatus.innerText = "Não tem esse item.";
 			}
@@ -206,14 +144,10 @@ function usarItem3(){
 
 function usarItem4(){
 	if(jogando){
-		if(!item4Ativo){
-			if (jogador.item4){
-				jogador.item4 = jogador.item4 - 1;
-				item4Ativo = true;
-				quantidadeItem4.innerText = jogador.item4;
-				item4.dataset.selecionado = "ativado";
-				pExperiencia.style.color = "#ef5350";
-				timerItem4 = setInterval(desativarItem4, 60000);
+		if(!itemAtivo[ITEM_ATAQUEMAGICO]){
+			if (jogador.item[ITEM_ATAQUEMAGICO]){
+				usarAtivarItem(4, 60000);
+				atualizarAtaqueMagico();
 			} else {
 				txtStatus.innerText = "Não tem esse item.";
 			}
@@ -225,33 +159,10 @@ function usarItem4(){
 
 function usarItem5(){
 	if(jogando){
-		if(!item5Ativo){
-			if (jogador.item5){
-				jogador.item5 = jogador.item5 - 1;
-				item5Ativo = true;
-				quantidadeItem5.innerText = jogador.item5;
-				item5.dataset.selecionado = "ativado";
-				atualizarAtaqueMagico();
-				timerItem5 = setInterval(desativarItem5, 60000);
-			} else {
-				txtStatus.innerText = "Não tem esse item.";
-			}
-		} else {
-			txtStatus.innerText = "O item ja está em uso.";
-		}
-	}
-}
-
-function usarItem6(){
-	if(jogando){
-		if(!item6Ativo){
-			if (jogador.item6){
-				jogador.item6 = jogador.item6 - 1;
-				item6Ativo = true;
-				quantidadeItem6.innerText = jogador.item6;
-				item6.dataset.selecionado = "ativado";
+		if(!itemAtivo[ITEM_DEFESAMAGICA]){
+			if (jogador.item[ITEM_DEFESAMAGICA]){
+				usarAtivarItem(5, 60000);
 				atualizarDefesaMagica();
-				timerItem6 = setInterval(desativarItem6, 60000);
 			} else {
 				txtStatus.innerText = "Não tem esse item.";
 			}
@@ -261,61 +172,64 @@ function usarItem6(){
 	}
 }
 
-function mostrarInfoItem(id){
-	nomeItem.innerText = itens[id].nome;
-	descricaoItem.innerText = itens[id].descricao;
+//Mostra a informação do item na caixa de texto ao lado
+function mostrarInfoItem(numeroItem){
+	nomeItem.innerText = ITENS[numeroItem].nome;
+	descricaoItem.innerText = ITENS[numeroItem].descricao;
 }
 
+//Coloca a quantidade de todos os itens na interface do jogo
 function colocarQuantidadeItens(){
-	quantidadeItem1.innerText = jogador.item1;
-	quantidadeItem2.innerText = jogador.item2;
-	quantidadeItem3.innerText = jogador.item3;
-	quantidadeItem4.innerText = jogador.item4;
-	quantidadeItem5.innerText = jogador.item5;
-	quantidadeItem6.innerText = jogador.item6;
+	quantidadeItem[ITEM_POCAO].innerText = jogador.item[ITEM_POCAO];
+	quantidadeItem[ITEM_ATAQUE].innerText = jogador.item[ITEM_ATAQUE];
+	quantidadeItem[ITEM_DEFESA].innerText = jogador.item[ITEM_DEFESA];
+	quantidadeItem[ITEM_EXPERIENCIA].innerText = jogador.item[ITEM_EXPERIENCIA];
+	quantidadeItem[ITEM_ATAQUEMAGICO].innerText = jogador.item[ITEM_ATAQUEMAGICO];
+	quantidadeItem[ITEM_DEFESAMAGICA].innerText = jogador.item[ITEM_DEFESAMAGICA];
 }
 
+//Apaga a quantidade de todos os itens na interface do jogo
 function apagarQuantidadeItens(){
-	quantidadeItem1.innerText = "";
-	quantidadeItem2.innerText = "";
-	quantidadeItem3.innerText = "";
-	quantidadeItem4.innerText = "";
-	quantidadeItem5.innerText = "";
-	quantidadeItem6.innerText = "";
+	quantidadeItem[ITEM_POCAO].innerText = "";
+	quantidadeItem[ITEM_ATAQUE].innerText = "";
+	quantidadeItem[ITEM_DEFESA].innerText = "";
+	quantidadeItem[ITEM_EXPERIENCIA].innerText = "";
+	quantidadeItem[ITEM_ATAQUEMAGICO].innerText = "";
+	quantidadeItem[ITEM_DEFESAMAGICA].innerText = "";
 }
 
+//Funcao que faz o jogador encontrar um item aleatório
 function acharItem(){
-	if(!batalhando && txtMapa.innerText !== "Cidade"){
-		if(txtMapa.innerText === "Floresta"){
-			const sorteio = sortearNumero(1, 100);
+	if(!batalhando && txtMapa.dataset.numero !== MAPA_CIDADE){
+		if(parseInt(txtMapa.dataset.numero) === MAPA_FLORESTA){
+			sorteio = sortearNumero(1, 100);
 			if(sorteio <= 10){
-				const sorteioItem = sortearNumero(1, 6);
-				if(sorteioItem === 1){
-					jogador.item1 = jogador.item1 + 1;
-					quantidadeItem1.innerText = jogador.item1;
-					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[1].nome}.`;
-				} else if(sorteioItem === 2){
-					jogador.item2 = jogador.item2 + 1;
-					quantidadeItem2.innerText = jogador.item2;
-					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[2].nome}.`;
-				} else if(sorteioItem === 3){
-					jogador.item3 = jogador.item3 + 1;
-					quantidadeItem3.innerText = jogador.item3;
-					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[3].nome}.`;
-				} else if(sorteioItem === 4){
-					jogador.item4 = jogador.item4 + 1;
-					quantidadeItem4.innerText = jogador.item4;
-					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[4].nome}.`;
-				} else if(sorteioItem === 5){
-					jogador.item5 = jogador.item5 + 1;
-					quantidadeItem5.innerText = jogador.item5;
-					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[5].nome}.`;
-				} else {
-					jogador.item6 = jogador.item6 + 1;
-					quantidadeItem6.innerText = jogador.item6;
-					txtStatus.innerText = `${jogador.nome} encontrou 1 ${itens[6].nome}.`;
-				}
+				sorteioItem = sortearNumero(0, 5);
+				ganharItem(sorteioItem);
+				txtStatus.innerText = `${jogador.nome} encontrou 1 ${ITENS[sorteioItem].nome}.`;
 			}
 		}
 	}
+}
+
+//Funcao usada para todos os itens quando ganhar um
+function ganharItem(numeroItem){
+	jogador.item[numeroItem] = jogador.item[numeroItem] + 1;
+	quantidadeItem[numeroItem].innerText = jogador.item[numeroItem];
+}
+
+//Funcao de comandos padroes para usar itens
+function usarAtivarItem(numeroItem, intervalo){
+	jogador.item[numeroItem] = jogador.item[numeroItem] - 1;
+	quantidadeItem[numeroItem].innerText = jogador.item[numeroItem];
+	itemAtivo[numeroItem] = true;
+	itemFundo[numeroItem].dataset.selecionado = "ativado";
+	timerItem[numeroItem] = setInterval(desativarItem[numeroItem], intervalo);
+}
+
+//Funcao de comandos padroes para desativar itens
+function desativacaodoItem(numeroItem){
+	itemAtivo[numeroItem] = false;
+	itemFundo[numeroItem].dataset.selecionado = "desativado";
+	timerItem[numeroItem] = clearInterval(timerItem[numeroItem]);
 }
