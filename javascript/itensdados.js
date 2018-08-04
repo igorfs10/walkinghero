@@ -8,32 +8,32 @@ const ITEM_POCAO = 0,
 	
 	
 const ITENS = [{
-		numero : 0,
+		numero : ITEM_POCAO,
 		nome : "Poção",
 		descricao : "Recupera 30% da vida.",
 		efeito: usarItem0
 	},{
-		numero : 1,
+		numero : ITEM_ATAQUE,
 		nome : "Ataque",
 		descricao : "Aumenta o ataque por 1 minuto.",
 		efeito: usarItem1
 	},{
-		numero : 2,
+		numero : ITEM_DEFESA,
 		nome : "Defesa",
 		descricao : "Aumenta a defesa por 1 minuto.",
 		efeito: usarItem2
 	},{
-		numero : 3,
+		numero : ITEM_EXPERIENCIA,
 		nome : "Experiência",
 		descricao : "Dobra a experiência ganha por 1 minuto.",
 		efeito: usarItem3
 	},{
-		numero : 4,
+		numero : ITEM_ATAQUEMAGICO,
 		nome : "Ataque Mágico",
 		descricao : "Aumenta o ataque mágico por 1 minuto.",
 		efeito: usarItem4
 	},{
-		numero : 5,
+		numero : ITEM_DEFESAMAGICA,
 		nome : "Defesa Mágica",
 		descricao : "Aumenta a defesa mágica por 1 minuto.",
 		efeito: usarItem5

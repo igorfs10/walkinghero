@@ -1,14 +1,19 @@
 "use strict";
+
+const INIMIGO1 = 0,
+	INIMIGO2 = 1,
+	INIMIGO3 = 2;
+
 //Sorteia com qual inimigo irá batalhar
 function escolherInimigo(local){
-	if(local !== 0){
+	if(local !== MAPA_CIDADE){
 		sorteio = sortearNumero(1, 100);
 		if (sorteio <= 60){
-			inimigo = INIMIGOS[local][0];
+			inimigo = MAPAINIMIGOS[local][INIMIGO1];
 		}else if (sorteio <= 90){
-			inimigo = INIMIGOS[local][1];
+			inimigo = MAPAINIMIGOS[local][INIMIGO2];
 		}else{
-			inimigo = INIMIGOS[local][2];
+			inimigo = MAPAINIMIGOS[local][INIMIGO3];
 		}
 	}
 }

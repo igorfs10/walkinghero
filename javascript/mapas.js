@@ -19,7 +19,7 @@ function proximoMapa(){
 	if(jogando && !batalhando){
 		for(mapaAtual = 0; MAPAS[mapaAtual].nome !== txtMapa.innerText; mapaAtual++){}
 		if(mapaAtual === ULTIMOMAPA){
-			txtStatus.innerText = "Esse é o ULTIMOMAPA local.";
+			txtStatus.innerText = TEXTO_ULTIMOLOCAL;
 		} else {
 			mudarMapa(mapaAtual + 1);
 			setaEsquerda.style.display = "block";
@@ -28,7 +28,7 @@ function proximoMapa(){
 			}
 		}
 	} else if(batalhando){
-		txtStatus.innerText = "Não pode mudar o local enquanto batalha.";
+		txtStatus.innerText = TEXTO_MUDARMAPABATALHA;
 	}
 }
 
@@ -36,7 +36,7 @@ function anteriorMapa(){
 	if(jogando && !batalhando){
 		for(mapaAtual = 0; MAPAS[mapaAtual].nome !== txtMapa.innerText; mapaAtual++){}
 		if(mapaAtual === PRIMEIROMAPA){
-			txtStatus.innerText = "Esse é o PRIMEIROMAPA local.";
+			txtStatus.innerText = TEXTO_PRIMEIROLOCAL;
 		} else {
 			mudarMapa(mapaAtual - 1);
 			setaDireita.style.display = "block";
@@ -45,7 +45,7 @@ function anteriorMapa(){
 			}
 		}
 	} else if(batalhando){
-		txtStatus.innerText = "Não pode mudar o local enquanto batalha.";
+		txtStatus.innerText = TEXTO_MUDARMAPABATALHA;
 	}
 }
 

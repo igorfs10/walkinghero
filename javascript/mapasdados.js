@@ -3,15 +3,15 @@ const MAPA_CIDADE = 0,
 	MAPA_FLORESTA = 1;
 
 const MAPAS = [{
-		numero : 0,
+		numero : MAPA_CIDADE,
 		nome : "Cidade",
 		imagem: "url(imagens/mapas/cidade.jpg)"
 	},{
-		numero : 1,
+		numero : MAPA_FLORESTA,
 		nome : "Floresta",
 		imagem: "url(imagens/mapas/floresta.jpg)"
 	}
 ];
 
-const PRIMEIROMAPA = 0,
-	ULTIMOMAPA = MAPAS.length - 1;
+const PRIMEIROMAPA = MAPA_CIDADE,
+	ULTIMOMAPA = MAPA_FLORESTA;

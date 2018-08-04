@@ -9,10 +9,10 @@ let tempo = 0,
 	txtStatus = document.getElementById("txtStatus"),
 	personagemJogador = document.getElementById("personagemJogador"),
 	personagemInimigo = document.getElementById("personagemInimigo"),
-	sorteio,
+	atualizacaoJogo,
 	jogador,
 	inimigo,
-	atualizacaoJogo,
+	sorteio,
 	dia,
 	hora,
 	minuto,
@@ -66,8 +66,8 @@ function novoJogo(){
 	desaparecerSetas();
 }
 
-function comecarJogo(nomePersonagem){
-	escolherPersonagem(nomePersonagem);
+function comecarJogo(numeroPersonagem){
+	escolherPersonagem(numeroPersonagem);
 	iniciarJogo();
 }
 
@@ -76,19 +76,21 @@ function salvarJogo(){
 		localStorage.setItem("nomeSalvo", txtNome.innerText);
 		localStorage.setItem("tempoSalvo", tempo);
 		localStorage.setItem("jogador", JSON.stringify(jogador));
+		txtStatus.innerText = TEXTO_JOGOSALVO;
 	} else {
-		txtStatus.innerText = "Precisa estar jogando para salvar o jogo.";
+		txtStatus.innerText = TEXTO_SALVARSEMJOGAR;
 	}
 }
 
 function carregarJogo(){
 	if (isNaN(parseInt(localStorage.getItem("tempoSalvo")))){
-		txtStatus.innerText = "Não existe jogo salvo.";
+		txtStatus.innerText = TEXTO_NAOEXISTEJOGOSALVO;
 	} else {
 		pararJogo();
 		tempo = parseInt(localStorage.getItem("tempoSalvo"));
 		jogador = JSON.parse(localStorage.getItem("jogador"));
 		iniciarJogo();
+		txtStatus.innerText = TEXTO_JOGOCARREGADO;
 	}
 }
 

@@ -86,13 +86,13 @@ function usarItem0(){
 					}
 					usarAtivarItem(ITEM_POCAO, 10000);
 				} else {
-					txtStatus.innerText = "A vida ja está no máximo.";
+					txtStatus.innerText = TEXTO_VIDAMAXIMA;
 				}
 			} else {
-				txtStatus.innerText = "Não tem esse item.";
+				txtStatus.innerText = TEXTO_NAOPOSSUEITEM;
 			}
 		} else {
-			txtStatus.innerText = "Não pode usar o item várias vezes seguidas.";
+			txtStatus.innerText = TEXTO_ITEMUSOVARIAS;
 		}
 	}
 }
@@ -104,10 +104,10 @@ function usarItem1(){
 				usarAtivarItem(ITEM_ATAQUE, 60000);
 				atualizarAtaque();
 			} else {
-				txtStatus.innerText = "Não tem esse item.";
+				txtStatus.innerText = TEXTO_NAOPOSSUEITEM;
 			}
 		} else {
-			txtStatus.innerText = "O item ja está em uso.";
+			txtStatus.innerText = TEXTO_ITEMUSO;
 		}
 	}
 }
@@ -119,10 +119,10 @@ function usarItem2(){
 				usarAtivarItem(2, 60000);
 				atualizarDefesa();
 			} else {
-				txtStatus.innerText = "Não tem esse item.";
+				txtStatus.innerText = TEXTO_NAOPOSSUEITEM;
 			}
 		} else {
-			txtStatus.innerText = "O item ja está em uso.";
+			txtStatus.innerText = TEXTO_ITEMUSO;
 		}
 	}
 }
@@ -134,10 +134,10 @@ function usarItem3(){
 				usarAtivarItem(3, 60000);
 				pExperiencia.style.color = "#ef5350";
 			} else {
-				txtStatus.innerText = "Não tem esse item.";
+				txtStatus.innerText = TEXTO_NAOPOSSUEITEM;
 			}
 		} else {
-			txtStatus.innerText = "O item ja está em uso.";
+			txtStatus.innerText = TEXTO_ITEMUSO;
 		}
 	}
 }
@@ -149,10 +149,10 @@ function usarItem4(){
 				usarAtivarItem(4, 60000);
 				atualizarAtaqueMagico();
 			} else {
-				txtStatus.innerText = "Não tem esse item.";
+				txtStatus.innerText = TEXTO_NAOPOSSUEITEM;
 			}
 		} else {
-			txtStatus.innerText = "O item ja está em uso.";
+			txtStatus.innerText = TEXTO_ITEMUSO;
 		}
 	}
 }
@@ -164,10 +164,10 @@ function usarItem5(){
 				usarAtivarItem(5, 60000);
 				atualizarDefesaMagica();
 			} else {
-				txtStatus.innerText = "Não tem esse item.";
+				txtStatus.innerText = TEXTO_NAOPOSSUEITEM;
 			}
 		} else {
-			txtStatus.innerText = "O item ja está em uso.";
+			txtStatus.innerText = TEXTO_ITEMUSO;
 		}
 	}
 }
@@ -204,9 +204,9 @@ function acharItem(){
 		if(parseInt(txtMapa.dataset.numero) === MAPA_FLORESTA){
 			sorteio = sortearNumero(1, 100);
 			if(sorteio <= 10){
-				sorteioItem = sortearNumero(0, 5);
+				sorteioItem = sortearNumero(ITEM_POCAO, ITEM_DEFESAMAGICA);
 				ganharItem(sorteioItem);
-				txtStatus.innerText = `${jogador.nome} encontrou 1 ${ITENS[sorteioItem].nome}.`;
+				txtStatus.innerText = TEXTO_ITEMENCONTRAR();
 			}
 		}
 	}

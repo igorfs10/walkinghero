@@ -8,7 +8,7 @@ function comecarBatalha(){
 		if(sorteio <= 20){
 			batalhando = true;
 			escolherInimigo(txtMapa.dataset.numero);
-			txtStatus.innerText = `${inimigo.nome} apareceu.`;
+			txtStatus.innerText = TEXTO_INIMIGOAPARECEU();
 		}
 	}
 }
@@ -31,11 +31,11 @@ function jogadorAtaca(){
 	}
 	if (sorteio <= 30){
 		dano = dano * 2;
-		txtStatus.innerText = `${jogador.nome} deu um golpe crítico.`;
+		txtStatus.innerText = TEXTO_JOGADORCRITICO();
 	}
 	inimigo.vida = inimigo.vida - dano;
 	if(inimigo.vida < 1){
-		if(itemAtivo[3]){
+		if(itemAtivo[ITEM_EXPERIENCIA]){
 			experienciaGanha = inimigo.experiencia * 2;
 		} else {
 			experienciaGanha = inimigo.experiencia;
@@ -44,9 +44,9 @@ function jogadorAtaca(){
 		sorteio = sortearNumero(1, 100);
 		if(sorteio <= 10){
 			ganharItem(inimigo.item);
-			txtStatus.innerText = `Derrotou ${inimigo.nome}. Ganhou ${ITENS[inimigo.item].nome} e ${experienciaGanha} de experiência.`;
+			txtStatus.innerText = TEXTO_DERROTOUINIMIGOITEM();
 		}else{
-			txtStatus.innerText = `Derrotou ${inimigo.nome}. Ganhou ${experienciaGanha} de experiência.`;
+			txtStatus.innerText = TEXTO_DERROTOUINIMIGO();
 		}
 		batalhando = false;
 		pegarNivel();
@@ -62,12 +62,12 @@ function inimigoAtaca(){
 	}
 	if (sorteio <= 10){
 		dano = dano * 2;
-		txtStatus.innerText = `${inimigo.nome} deu um golpe crítico.`;
+		txtStatus.innerText = TEXTO_INIMIGOCRITICO();
 	}
 	atualVida.innerText = parseInt(atualVida.innerText) - dano;
 	if(parseInt(atualVida.innerText) < 1){
 		pararJogo();
 		iniciarJogo();
-		txtStatus.innerText = `Você foi derrotado pelo ${inimigo.nome}.`;
+		txtStatus.innerText = TEXTO_DERROTADO();
 	}
 }
