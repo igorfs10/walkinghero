@@ -1,6 +1,7 @@
 #!/bin/bash
 
 git clone -b ${BRANCH} git://${GH_REPO}
+mkdir -p javascript
 
 dart2js -O4 -o javascript/teste.js main.dart
 
