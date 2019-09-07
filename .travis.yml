@@ -9,4 +9,4 @@ env:
   - BRANCH="gh-pages"
 
 script:
-  ./script.sh
+  bash script.sh
