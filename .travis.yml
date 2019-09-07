@@ -1,0 +1,12 @@
+language: dart
+dart:
+  - stable
+
+env:
+  global:
+  - REPO="walkinghero"
+  - GH_REPO="github.com/igorfs10/${REPO}.git"
+  - BRANCH="gh-pages"
+
+script:
+  script.sh
