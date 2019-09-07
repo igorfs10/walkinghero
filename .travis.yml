@@ -7,6 +7,8 @@ env:
   - REPO="walkinghero"
   - GH_REPO="github.com/igorfs10/${REPO}.git"
   - BRANCH="gh-pages"
+  - USER ="travisci"
+  - EMAIL ="travis@travis-ci.org"
 
 script:
   bash script.sh
