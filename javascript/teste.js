@@ -89,11 +89,11 @@ t=t.substring(1,n)}return H.M(t)},
 a3:function(a,b){var u,t="index"
 if(typeof b!=="number"||Math.floor(b)!==b)return new P.a(b,t,null)
 u=J.U(a)
-if(b<0||b>=u)return new P.u(u,b,t,"Index out of range")
+if(b<0||b>=u)return new P.v(u,b,t,"Index out of range")
 return P.L(b,t)},
 a2:function(a){return new P.a(a,null,null)},
 e:function(a){var u
-if(a==null)a=new P.C()
+if(a==null)a=new P.D()
 u=new Error()
 u.dartException=a
 if("defineProperty" in Object){Object.defineProperty(u,"message",{get:H.T})
@@ -101,8 +101,8 @@ u.name=""}else u.toString=H.T
 return u},
 T:function(){return J.H(this.dartException)},
 S:function(a){throw H.e(a)},
-a8:function(a){throw H.e(new P.q(a))},
-a9:function(a){throw H.e(new P.r(a))},
+a8:function(a){throw H.e(new P.r(a))},
+a9:function(a){throw H.e(new P.t(a))},
 a6:function(a){if(a==null)return
 return a.$ti},
 d:function(a,b){if(a==null)return"dynamic"
@@ -142,7 +142,7 @@ for(t=b,s="",r=!0,q="";t<a.length;++t,s=", "){u.a=q+s
 p=a[t]
 if(p!=null)r=!1
 q=u.a+=H.d(p,c)}return"<"+u.h(0)+">"},
-p:function p(){},
+q:function q(){},
 a4:function(a){return J.Y(a?Object.keys(a):[])},
 a7:function(a){if(typeof dartPrint=="function"){dartPrint(a)
 return}if(typeof console=="object"&&typeof console.log!="undefined"){console.log(a)
@@ -151,10 +151,10 @@ if(typeof print=="function"){print(a)
 return}throw"Unable to print message: "+String(a)}},J={
 Y:function(a){a.fixed$length=Array
 return a},
-Q:function(a){if(typeof a=="number"){if(Math.floor(a)==a)return J.x.prototype
-return J.w.prototype}if(typeof a=="string")return J.h.prototype
-if(a==null)return J.y.prototype
-if(typeof a=="boolean")return J.v.prototype
+Q:function(a){if(typeof a=="number"){if(Math.floor(a)==a)return J.y.prototype
+return J.x.prototype}if(typeof a=="string")return J.h.prototype
+if(a==null)return J.z.prototype
+if(typeof a=="boolean")return J.w.prototype
 if(a.constructor==Array)return J.f.prototype
 return a},
 a5:function(a){if(typeof a=="string")return J.h.prototype
@@ -164,22 +164,22 @@ return a},
 U:function(a){return J.a5(a).gi(a)},
 H:function(a){return J.Q(a).h(a)},
 j:function j(){},
-v:function v(){},
-y:function y(){},
+w:function w(){},
+z:function z(){},
 f:function f(){},
 I:function I(){},
-o:function o(a,b){var _=this
+p:function p(a,b){var _=this
 _.a=a
 _.b=b
 _.c=0
 _.d=null},
-z:function z(){},
+A:function A(){},
+y:function y(){},
 x:function x(){},
-w:function w(){},
 h:function h(){}},P={
-W:function(a){if(a instanceof H.p)return a.h(0)
+W:function(a){if(a instanceof H.q)return a.h(0)
 return"Instance of '"+H.K(a)+"'"},
-a_:function(a,b,c){var u=new J.o(b,b.length)
+a_:function(a,b,c){var u=new J.p(b,b.length)
 if(!u.l())return a
 if(c.length===0){do a+=H.c(u.d)
 while(u.l())}else{a+=H.c(u.d)
@@ -188,28 +188,28 @@ N:function(a){if(typeof a==="number"||typeof a==="boolean"||null==a)return J.H(a
 if(typeof a==="string")return JSON.stringify(a)
 return P.W(a)},
 V:function(a,b,c){return new P.a(a,b,c)},
-L:function(a,b){return new P.D(a,b,"Value not in range")},
-G:function(a){H.a7(H.c(a))},
+L:function(a,b){return new P.E(a,b,"Value not in range")},
+o:function(a){H.a7(H.c(a))},
 m:function m(){},
-F:function F(){},
-t:function t(){},
-C:function C(){},
+G:function G(){},
+u:function u(){},
+D:function D(){},
 a:function a(a,b,c){this.b=a
 this.c=b
 this.d=c},
-D:function D(a,b,c){this.b=a
+E:function E(a,b,c){this.b=a
 this.c=b
 this.d=c},
-u:function u(a,b,c,d){var _=this
+v:function v(a,b,c,d){var _=this
 _.f=a
 _.b=b
 _.c=c
 _.d=d},
-q:function q(a){this.a=a},
 r:function r(a){this.a=a},
+t:function t(a){this.a=a},
 n:function n(){},
-A:function A(){},
 B:function B(){},
+C:function C(){},
 i:function i(){},
 b:function b(){},
 k:function k(){},
@@ -217,34 +217,35 @@ l:function l(a){this.a=a},
 X:function(a,b,c){var u,t
 if(P.a1(a))return b+"..."+c
 u=new P.l(b)
-$.E.push(a)
+$.F.push(a)
 try{t=u
-t.a=P.a_(t.a,a,", ")}finally{$.E.pop()}u.a+=c
+t.a=P.a_(t.a,a,", ")}finally{$.F.pop()}u.a+=c
 t=u.a
 return t.charCodeAt(0)==0?t:t},
 a1:function(a){var u,t
-for(u=$.E.length,t=0;t<u;++t)if(a===$.E[t])return!0
+for(u=$.F.length,t=0;t<u;++t)if(a===$.F[t])return!0
 return!1}},F={
-R:function(){P.G("Teste.")
-P.G("Po\xe7\xe3o")
-P.G(1)
-P.G("Teste inimigo")}}
+R:function(){P.o("Teste.")
+P.o("Po\xe7\xe3o")
+P.o(1)
+P.o("Teste inimigo")
+P.o("TESTE BATALHA")}}
 var w=[C,H,J,P,F]
 hunkHelpers.setFunctionNamesIfNecessary(w)
 var $={}
 H.J.prototype={}
 J.j.prototype={
 h:function(a){return"Instance of '"+H.K(a)+"'"}}
-J.v.prototype={
+J.w.prototype={
 h:function(a){return String(a)},
 $im:1}
-J.y.prototype={
+J.z.prototype={
 h:function(a){return"null"}}
 J.f.prototype={
 h:function(a){return P.X(a,"[","]")},
 gi:function(a){return a.length}}
 J.I.prototype={}
-J.o.prototype={
+J.p.prototype={
 l:function(){var u,t=this,s=t.a,r=s.length
 if(t.b!==r)throw H.e(H.a8(s))
 u=t.c
@@ -252,12 +253,12 @@ if(u>=r){t.d=null
 return!1}t.d=s[u]
 t.c=u+1
 return!0}}
-J.z.prototype={
+J.A.prototype={
 h:function(a){if(a===0&&1/a<0)return"-0.0"
 else return""+a},
 $ii:1}
-J.x.prototype={$in:1}
-J.w.prototype={}
+J.y.prototype={$in:1}
+J.x.prototype={}
 J.h.prototype={
 n:function(a,b){if(b>=a.length)throw H.e(H.a3(a,b))
 return a.charCodeAt(b)},
@@ -266,16 +267,16 @@ return a+b},
 h:function(a){return a},
 gi:function(a){return a.length},
 $ik:1}
-H.p.prototype={
+H.q.prototype={
 gp:function(){return this},
 $C:"$1",
 $R:1,
 $D:null}
 P.m.prototype={
 h:function(a){return this?"true":"false"}}
-P.F.prototype={}
-P.t.prototype={}
-P.C.prototype={
+P.G.prototype={}
+P.u.prototype={}
+P.D.prototype={
 h:function(a){return"Throw of null."}}
 P.a.prototype={
 gk:function(){return"Invalid argument"},
@@ -287,26 +288,26 @@ t=q.gk()+o+u
 s=q.gj()
 r=P.N(q.b)
 return t+s+": "+r}}
-P.D.prototype={
+P.E.prototype={
 gk:function(){return"RangeError"},
 gj:function(){return""}}
-P.u.prototype={
+P.v.prototype={
 gk:function(){return"RangeError"},
 gj:function(){if(this.b<0)return": index must not be negative"
 var u=this.f
 if(u===0)return": no indices are valid"
 return": index should be less than "+u},
 gi:function(a){return this.f}}
-P.q.prototype={
+P.r.prototype={
 h:function(a){var u=this.a
 if(u==null)return"Concurrent modification during iteration."
 return"Concurrent modification during iteration: "+P.N(u)+"."}}
-P.r.prototype={
+P.t.prototype={
 h:function(a){var u=this.a
 return u==null?"Reading static variable during its initialization":"Reading static variable '"+u+"' during its initialization"}}
 P.n.prototype={}
-P.A.prototype={}
-P.B.prototype={
+P.B.prototype={}
+P.C.prototype={
 h:function(a){return"null"}}
 P.i.prototype={}
 P.b.prototype={constructor:P.b,$ib:1,
@@ -318,19 +319,19 @@ gi:function(a){return this.a.length},
 h:function(a){var u=this.a
 return u.charCodeAt(0)==0?u:u}};(function inheritance(){var u=hunkHelpers.inherit,t=hunkHelpers.inheritMany
 u(P.b,null)
-t(P.b,[H.J,J.j,J.o,H.p,P.m,P.i,P.t,P.A,P.B,P.k,P.l])
-t(J.j,[J.v,J.y,J.f,J.z,J.h])
+t(P.b,[H.J,J.j,J.p,H.q,P.m,P.i,P.u,P.B,P.C,P.k,P.l])
+t(J.j,[J.w,J.z,J.f,J.A,J.h])
 u(J.I,J.f)
-t(J.z,[J.x,J.w])
-t(P.i,[P.F,P.n])
-t(P.t,[P.C,P.a,P.q,P.r])
-t(P.a,[P.D,P.u])})();(function constants(){C.c=J.j.prototype
+t(J.A,[J.y,J.x])
+t(P.i,[P.G,P.n])
+t(P.u,[P.D,P.a,P.r,P.t])
+t(P.a,[P.E,P.v])})();(function constants(){C.c=J.j.prototype
 C.a=J.h.prototype
 C.b=function getTagFallback(o) {
   var s = Object.prototype.toString.call(o);
   return s.substring(8, s.length - 1);
 }})()
-var v={mangledGlobalNames:{n:"int",F:"double",i:"num",k:"String",m:"bool",B:"Null",A:"List"},mangledNames:{},getTypeFromName:getGlobalFromName,metadata:[],types:[]};(function staticFields(){$.E=[]})()
+var v={mangledGlobalNames:{n:"int",G:"double",i:"num",k:"String",m:"bool",C:"Null",B:"List"},mangledNames:{},getTypeFromName:getGlobalFromName,metadata:[],types:[]};(function staticFields(){$.F=[]})()
 convertAllToFastObject(w)
 convertToFastObject($);(function(a){if(typeof document==="undefined"){a(null)
 return}if(typeof document.currentScript!='undefined'){a(document.currentScript)
