@@ -11,4 +11,5 @@ env:
   - EMAIL ="travis@travis-ci.org"
 
 script:
+  bash compileall.sh
   bash script.sh
