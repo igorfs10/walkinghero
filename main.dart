@@ -13,4 +13,5 @@ main(){
 
   InimigoBatalha inimigo2 = new InimigoBatalha();
   inimigo2.nome = "TESTE BATALHA";
+  print(inimigo2.nome);
 }
