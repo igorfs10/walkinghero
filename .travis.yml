@@ -2,10 +2,6 @@ language: dart
 dart:
   - stable
 
-branches:
-  only:
-  - master
-
 env:
   global:
   - REPO="walkinghero"
