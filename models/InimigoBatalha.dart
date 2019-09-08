@@ -1,4 +1,4 @@
-class Inimigo{
+class InimigoBatalha{
   int _id;
   String _nome;
   int _vida;
