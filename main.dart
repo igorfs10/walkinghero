@@ -6,7 +6,7 @@ import "models/InimigoBatalha.dart";
 main(){
   print("Teste.");
   print(ITENS[0].nome);
-  print("O número do coelho é ${INIMIGO_COELHO}.");
+  print("O id do coelho é ${INIMIGO_COELHO}.");
 
   Inimigo inimigo1 = new Inimigo(nome: "Teste inimigo");
   print(inimigo1.nome);
