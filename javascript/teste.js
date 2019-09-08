@@ -227,7 +227,7 @@ for(u=$.F.length,t=0;t<u;++t)if(a===$.F[t])return!0
 return!1}},F={
 R:function(){P.o("Teste.")
 P.o("Po\xe7\xe3o")
-P.o(1)
+P.o("O n\xfamero do coelho \xe9 1.")
 P.o("Teste inimigo")
 P.o("TESTE BATALHA")}}
 var w=[C,H,J,P,F]
