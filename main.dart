@@ -13,4 +13,6 @@ main(){
   print(inimigo2.nome);
 
   print(ITENS[0].efeito(7, 20));
+
+  print(INIMIGOS.toString());
 }
