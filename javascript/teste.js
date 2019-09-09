@@ -20,7 +20,7 @@ copyProperties(a.prototype,u)
 a.prototype=u}}function inheritMany(a,b){for(var u=0;u<b.length;u++)inherit(b[u],a)}function mixin(a,b){copyProperties(b.prototype,a.prototype)
 a.prototype.constructor=a}function lazy(a,b,c,d){var u=a
 a[b]=u
-a[c]=function(){a[c]=function(){H.a9(b)}
+a[c]=function(){a[c]=function(){H.aa(b)}
 var t
 var s=d
 try{if(a[b]===u){t=a[b]=s
@@ -69,10 +69,10 @@ if(typeof a==="number"){if(a!==0)return""+a}else if(!0===a)return"true"
 else if(!1===a)return"false"
 else if(a==null)return"null"
 u=J.H(a)
-if(typeof u!=="string")throw H.e(H.a2(a))
+if(typeof u!=="string")throw H.e(H.a3(a))
 return u},
-K:function(a){return H.Z(a)+H.O(H.a6(a),0,null)},
-Z:function(a){var u,t,s,r,q,p,o,n,m=null,l=J.Q(a),k=l.constructor
+K:function(a){return H.a_(a)+H.O(H.a7(a),0,null)},
+a_:function(a){var u,t,s,r,q,p,o,n,m=null,l=J.Q(a),k=l.constructor
 if(typeof k=="function"){u=k.name
 t=typeof u==="string"?u:m}else t=m
 s=t==null
@@ -86,12 +86,12 @@ n=t.length
 if(n>1&&C.a.n(t,0)===36){if(1>n)H.S(P.L(1,m))
 if(n>n)H.S(P.L(n,m))
 t=t.substring(1,n)}return H.M(t)},
-a3:function(a,b){var u,t="index"
+a4:function(a,b){var u,t="index"
 if(typeof b!=="number"||Math.floor(b)!==b)return new P.a(b,t,null)
 u=J.U(a)
 if(b<0||b>=u)return new P.v(u,b,t,"Index out of range")
 return P.L(b,t)},
-a2:function(a){return new P.a(a,null,null)},
+a3:function(a){return new P.a(a,null,null)},
 e:function(a){var u
 if(a==null)a=new P.D()
 u=new Error()
@@ -101,9 +101,9 @@ u.name=""}else u.toString=H.T
 return u},
 T:function(){return J.H(this.dartException)},
 S:function(a){throw H.e(a)},
-a8:function(a){throw H.e(new P.r(a))},
-a9:function(a){throw H.e(new P.t(a))},
-a6:function(a){if(a==null)return
+a9:function(a){throw H.e(new P.r(a))},
+aa:function(a){throw H.e(new P.t(a))},
+a7:function(a){if(a==null)return
 return a.$ti},
 d:function(a,b){if(a==null)return"dynamic"
 if(a===-1)return"void"
@@ -111,10 +111,10 @@ if(typeof a==="object"&&a!==null&&a.constructor===Array)return H.M(a[0].name)+H.
 if(typeof a=="function")return H.M(a.name)
 if(a===-2)return"dynamic"
 if(typeof a==="number"){if(b==null||a<0||a>=b.length)return"unexpected-generic-index:"+H.c(a)
-return H.c(b[b.length-a-1])}if('func' in a)return H.a0(a,b)
+return H.c(b[b.length-a-1])}if('func' in a)return H.a1(a,b)
 if('futureOr' in a)return"FutureOr<"+H.d("type" in a?a.type:null,b)+">"
 return"unknown-reified-type"},
-a0:function(a,a0){var u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b=", "
+a1:function(a,a0){var u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b=", "
 if("bounds" in a){u=a.bounds
 if(a0==null){a0=[]
 t=null}else t=a0.length
@@ -132,7 +132,7 @@ j+=i+"["
 for(k=f.length,i="",h=0;h<k;++h,i=b){g=f[h]
 j=j+i+H.d(g,a0)}j+="]"}if("named" in a){e=a.named
 j+=i+"{"
-for(k=H.a4(e),d=k.length,i="",h=0;h<d;++h,i=b){c=k[h]
+for(k=H.a5(e),d=k.length,i="",h=0;h<d;++h,i=b){c=k[h]
 j=j+i+H.d(e[c],a0)+(" "+H.c(c))}j+="}"}if(t!=null)a0.length=t
 return p+"("+j+") => "+m},
 O:function(a,b,c){var u,t,s,r,q,p
@@ -143,13 +143,13 @@ p=a[t]
 if(p!=null)r=!1
 q=u.a+=H.d(p,c)}return"<"+u.h(0)+">"},
 q:function q(){},
-a4:function(a){return J.Y(a?Object.keys(a):[])},
-a7:function(a){if(typeof dartPrint=="function"){dartPrint(a)
+a5:function(a){return J.Z(a?Object.keys(a):[])},
+a8:function(a){if(typeof dartPrint=="function"){dartPrint(a)
 return}if(typeof console=="object"&&typeof console.log!="undefined"){console.log(a)
 return}if(typeof window=="object")return
 if(typeof print=="function"){print(a)
 return}throw"Unable to print message: "+String(a)}},J={
-Y:function(a){a.fixed$length=Array
+Z:function(a){a.fixed$length=Array
 return a},
 Q:function(a){if(typeof a=="number"){if(Math.floor(a)==a)return J.y.prototype
 return J.x.prototype}if(typeof a=="string")return J.h.prototype
@@ -157,11 +157,11 @@ if(a==null)return J.z.prototype
 if(typeof a=="boolean")return J.w.prototype
 if(a.constructor==Array)return J.f.prototype
 return a},
-a5:function(a){if(typeof a=="string")return J.h.prototype
+a6:function(a){if(typeof a=="string")return J.h.prototype
 if(a==null)return a
 if(a.constructor==Array)return J.f.prototype
 return a},
-U:function(a){return J.a5(a).gi(a)},
+U:function(a){return J.a6(a).gi(a)},
 H:function(a){return J.Q(a).h(a)},
 j:function j(){},
 w:function w(){},
@@ -179,7 +179,7 @@ x:function x(){},
 h:function h(){}},P={
 W:function(a){if(a instanceof H.q)return a.h(0)
 return"Instance of '"+H.K(a)+"'"},
-a_:function(a,b,c){var u=new J.p(b,b.length)
+a0:function(a,b,c){var u=new J.p(b,b.length)
 if(!u.l())return a
 if(c.length===0){do a+=H.c(u.d)
 while(u.l())}else{a+=H.c(u.d)
@@ -189,7 +189,7 @@ if(typeof a==="string")return JSON.stringify(a)
 return P.W(a)},
 V:function(a,b,c){return new P.a(a,b,c)},
 L:function(a,b){return new P.E(a,b,"Value not in range")},
-o:function(a){H.a7(H.c(a))},
+o:function(a){H.a8(H.c(a))},
 m:function m(){},
 G:function G(){},
 u:function u(){},
@@ -214,23 +214,25 @@ i:function i(){},
 b:function b(){},
 k:function k(){},
 l:function l(a){this.a=a},
-X:function(a,b,c){var u,t
-if(P.a1(a))return b+"..."+c
+Y:function(a,b,c){var u,t
+if(P.a2(a))return b+"..."+c
 u=new P.l(b)
 $.F.push(a)
 try{t=u
-t.a=P.a_(t.a,a,", ")}finally{$.F.pop()}u.a+=c
+t.a=P.a0(t.a,a,", ")}finally{$.F.pop()}u.a+=c
 t=u.a
 return t.charCodeAt(0)==0?t:t},
-a1:function(a){var u,t
+a2:function(a){var u,t
 for(u=$.F.length,t=0;t<u;++t)if(a===$.F[t])return!0
-return!1}},F={
+return!1}},A={
+X:function(a,b){a+=5
+return a>b?b:a}},F={
 R:function(){P.o("Teste.")
 P.o("Po\xe7\xe3o")
-P.o("O id do coelho \xe9 1.")
-P.o("Teste inimigo")
-P.o("TESTE BATALHA")}}
-var w=[C,H,J,P,F]
+P.o("Coelho")
+P.o("TESTE BATALHA")
+P.o(A.X(7,20))}}
+var w=[C,H,J,P,A,F]
 hunkHelpers.setFunctionNamesIfNecessary(w)
 var $={}
 H.J.prototype={}
@@ -242,12 +244,12 @@ $im:1}
 J.z.prototype={
 h:function(a){return"null"}}
 J.f.prototype={
-h:function(a){return P.X(a,"[","]")},
+h:function(a){return P.Y(a,"[","]")},
 gi:function(a){return a.length}}
 J.I.prototype={}
 J.p.prototype={
 l:function(){var u,t=this,s=t.a,r=s.length
-if(t.b!==r)throw H.e(H.a8(s))
+if(t.b!==r)throw H.e(H.a9(s))
 u=t.c
 if(u>=r){t.d=null
 return!1}t.d=s[u]
@@ -260,7 +262,7 @@ $ii:1}
 J.y.prototype={$in:1}
 J.x.prototype={}
 J.h.prototype={
-n:function(a,b){if(b>=a.length)throw H.e(H.a3(a,b))
+n:function(a,b){if(b>=a.length)throw H.e(H.a4(a,b))
 return a.charCodeAt(b)},
 m:function(a,b){if(typeof b!=="string")throw H.e(P.V(b,null,null))
 return a+b},
