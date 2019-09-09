@@ -3,39 +3,39 @@ import '../models/Item.dart';
 
 const List<Item> ITENS = [
   const Item(
-    id: ID_POCAO,
-    nome: NOME_POCAO,
-    descricao: DESCRICAO_POCAO,
+    id: ID_ITEM_POCAO,
+    nome: NOME_ITEM_POCAO,
+    descricao: DESCRICAO_ITEM_POCAO,
+    efeito: FUNCAO_ITEM_POCAO
+  ),
+  const Item(
+    id: ID_ITEM_ATAQUE,
+    nome: NOME_ITEM_ATAQUE,
+    descricao: DESCRICAO_ITEM_ATAQUE,
     efeito: null
   ),
   const Item(
-    id: ID_ATAQUE,
-    nome: NOME_ATAQUE,
-    descricao: DESCRICAO_ATAQUE,
+    id: ID_ITEM_DEFESA,
+    nome: NOME_ITEM_DEFESA,
+    descricao: DESCRICAO_ITEM_DEFESA,
     efeito: null
   ),
   const Item(
-    id: ID_DEFESA,
-    nome: NOME_DEFESA,
-    descricao: DESCRICAO_DEFESA,
+    id: ID_ITEM_EXPERIENCIA,
+    nome: NOME_ITEM_EXPERIENCIA,
+    descricao: DESCRICAO_ITEM_EXPERIENCIA,
     efeito: null
   ),
   const Item(
-    id: ID_EXPERIENCIA,
-    nome: NOME_EXPERIENCIA,
-    descricao: DESCRICAO_EXPERIENCIA,
+    id: ID_ITEM_ATAQUE_MAGICO,
+    nome: NOME_ITEM_ATAQUE_MAGICO,
+    descricao: DESCRICAO_ITEM_ATAQUE_MAGICO,
     efeito: null
   ),
   const Item(
-    id: ID_ATAQUE_MAGICO,
-    nome: NOME_ATAQUE_MAGICO,
-    descricao: DESCRICAO_ATAQUE_MAGICO,
-    efeito: null
-  ),
-  const Item(
-    id: ID_DEFESA_MAGICA,
-    nome: NOME_DEFESA_MAGICA,
-    descricao: DESCRICAO_DEFESA_MAGICA,
+    id: ID_ITEM_DEFESA_MAGICA,
+    nome: NOME_ITEM_DEFESA_MAGICA,
+    descricao: DESCRICAO_ITEM_DEFESA_MAGICA,
     efeito: null
   )
 ];

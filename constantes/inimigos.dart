@@ -1,3 +1,7 @@
-const int INIMIGO_RATO = 0,
-	INIMIGO_COELHO = 1,
-	INIMIGO_LOBO = 2;
+const int ID_INIMIGO_RATO = 0,
+	ID_INIMIGO_COELHO = 1,
+	ID_INIMIGO_LOBO = 2;
+
+const String NOME_INIMIGO_RATO = "Rato",
+  NOME_INIMIGO_COELHO = "Coelho",
+  NOME_INIMIGO_LOBO = "Lobo";
